@@ -3,9 +3,9 @@ function datetimeShow()
 {
     
     let daytime = new Date().toLocaleString('fr-FR', {
-        weekday:'long',
+        weekday:'short',
         day:'numeric',
-        month:'long',
+        month:'short',
         year:'numeric',
         hour:'numeric',
         minute:'numeric',
