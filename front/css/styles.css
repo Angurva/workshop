@@ -1,0 +1,38 @@
+body{
+    font-family: 'Mina',sans-serif;
+    font-size: 1.05rem;
+    /*background-image: url('assets/129239.jpg');*/
+}
+
+.navbar-color, .footer-color-bg{
+    background-color: #6B8490;
+    color: #E3E6E0;
+    font-size:1.2rem
+}
+
+.servicing{
+
+    background-color: #E3E6E0;
+}
+
+.opinions{
+
+    background-color: #252930;
+    color: #E3E6E0;
+}
+.text-color{
+
+    color:#E3E6E0;
+}
+
+.cluf{
+    font-size: 0.75rem;
+}
+
+table tr td, table tr th{
+    background-color: #6B8490;
+}
+
+.formulaire{
+    font-size: 1.25rem;
+}
