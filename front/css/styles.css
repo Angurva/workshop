@@ -1,14 +1,25 @@
 body{
     font-family: 'Mina',sans-serif;
     font-size: 1.05rem;
-    /*background-image: url('assets/129239.jpg');*/
     background-color: #6B8490;
 }
 
 .navbar-color, .footer-color-bg, .navbar-brand{
     background-color: #252930;
-    /*color: #E3E6E0;*/
+    color: #E3E6E0;
     font-size:1.2rem;
+}
+.text-color-a{
+    color: #E3E6E0;
+}
+.text-color-a:link{
+    color: #6B8490;
+}
+.text-color-a:hover{
+    color: #6B8490;
+}
+.text-color-a:active{
+    color:#6B8490;
 }
 
 .servicing{
@@ -22,18 +33,6 @@ body{
     color: #E3E6E0;
 }
 
-.text-color-a{
-    color:#E3E6E0;
-}
-
-.text-color-a:link{
-
-    color:#E3E6E0;
-}
-
-.text-color:active{
-    color:#6B8490;
-}
 
 .cluf{
     font-size: 0.75rem;

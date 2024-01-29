@@ -9,12 +9,11 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/daytimeShow.js"></script>
 </head>
-<body>
+<body onload="datetimeShow()">
   <header class="container-fluid p-0 m-0">
-
-
-    <nav class="navbar navbar-expand-lg navbar-color"><!--navbar-dark bg-dark-->
+    <nav class="navbar navbar-expand-lg navbar-color navbar-dark"><!--navbar-dark bg-dark-->
       <a href="#" class="navbar-brand ms-3 text-color-a">GarageParrot</a>
       
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,7 +22,7 @@
 
       <div class="collapse navbar-collapse flex-grow-0 offset-1" id="navbar-content">
         <ul class="navbar-nav ms-3 ">
-          <li class="nav-item"><a class="nav-link text-color-a active" href="#">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link text-color-a" href="#">Accueil</a></li>
           <li class="nav-item"><a class="nav-link text-color-a" href="#">Annonces</a></li>
           <li class="nav-item"><a class="nav-link text-color-a" href="#">Nous contacter</a></li>
           <li class="nav-item"><a class="nav-link text-color-a" href="#">Gestion</a></li>
@@ -31,11 +30,11 @@
       </div>
 
       <div class="navbar-nav offset-2 me-5 d-none d-lg-flex">
-        <div class="navbar-text text-color"> Mer 03 Janv. 2024, 11:07</div>
+        <div class="navbar-text text-color" id="daytime"> </div>
       </div>
       <div class="navbar-nav ms-auto me-3 d-none d-lg-flex ">
-        <a href="#"><img src="" alt=""></a>
-        <a href="#"><img src="" alt=""></a>
+        <a href="#"><img src="assets/icons8-commentaire-48.png" alt="" class="mt-1 me-3"></a>
+        <a href="#"><img src="assets/icons8-nouveau-message-48.png" alt=""class="me-5"></a>
         <a class="nav-item nav-link text-color-a" href="#">se connecter</a>
       </div>
       
