@@ -2,12 +2,13 @@ body{
     font-family: 'Mina',sans-serif;
     font-size: 1.05rem;
     /*background-image: url('assets/129239.jpg');*/
+    background-color: #6B8490;
 }
 
-.navbar-color, .footer-color-bg{
-    background-color: #6B8490;
-    color: #E3E6E0;
-    font-size:1.2rem
+.navbar-color, .footer-color-bg, .navbar-brand{
+    background-color: #252930;
+    /*color: #E3E6E0;*/
+    font-size:1.2rem;
 }
 
 .servicing{
@@ -20,9 +21,18 @@ body{
     background-color: #252930;
     color: #E3E6E0;
 }
-.text-color{
+
+.text-color-a{
+    color:#E3E6E0;
+}
+
+.text-color-a:link{
 
     color:#E3E6E0;
+}
+
+.text-color:active{
+    color:#6B8490;
 }
 
 .cluf{
@@ -30,7 +40,7 @@ body{
 }
 
 table tr td, table tr th{
-    background-color: #6B8490;
+    background-color: #252930;
 }
 
 .formulaire{
