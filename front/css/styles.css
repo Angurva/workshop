@@ -48,3 +48,7 @@ table tr td, table tr th{
 .formulaire{
     font-size: 1.25rem;
 }
+
+.card{
+    width:22rem;
+}
