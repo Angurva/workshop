@@ -6,5 +6,16 @@
             "email": "yohan.grondin@outlook.com"
         }
     ],
-    "require": {}
+    "autoload": {
+        "psr-4": {
+            "App\\":"App/",
+            "Conf\\":"Conf/",
+            "Controllers:\\":"Controllers/",
+            "Models\\":"Models/",
+            "Views\\":"Views/"
+        }
+    },
+    "require": {
+        "twig/twig": "^3.8"
+    }
 }
