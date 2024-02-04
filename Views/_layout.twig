@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="fr" class="h-100">
+
+    <head>
+        {% include "components/_head.twig" %}
+    </head>
+
+    <body onload="datetimeShow()">
+        {% include 'components/_header.twig' %}
+        
+        {% block main %}{% endblock %}
+
+        {% include 'components/_footer.twig' %}
+    </body>

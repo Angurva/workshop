@@ -12,7 +12,8 @@
             "Conf\\":"Conf/",
             "Controllers:\\":"Controllers/",
             "Models\\":"Models/",
-            "Views\\":"Views/"
+            "Views\\":"Views/",
+            "Exceptions\\":"Exceptions/"
         }
     },
     "require": {

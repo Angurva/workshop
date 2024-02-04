@@ -1,0 +1,12 @@
+
+create initial database
+$ sudo mysql
+password
+
+mysql> CREATE DATABASE workshop;
+mysql> CREATE USER 'workshop'@'localhost' IDENTIFIED BY 'workshop';
+mysql> GRANT ALL PRIVILEGES ON workshop.* TO 'workshop'@'localhost';
+mysql>quit;
+
+$ cat src/workshop_bdd.sql | mysql -u workshop -p workshop
+$ cat src/datas.sql | mysql -u workshop -p workshop
