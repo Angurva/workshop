@@ -4,5 +4,33 @@
 {% block title %}Annonces{% endblock %}
 
 {% block main %}
-    Annonces : {{ announces }}
+
+ <main class="container mt-3">
+    <section class="row justify-content-sm-center justify-content-md-evenly justify-content-lg-center p-2">
+      <div class="search">
+        <label for="customRange2" class="form-label">Example range</label>
+        <input type="range" class="" min="0" max="5" id="customRange2">
+        
+      </div>
+      {% for announce in announces %}
+        <article class="card col-lg-4 m-3 p-0">
+            <img src="" class="card-img-top img-fluid " alt="" >
+            <div class="card-body">
+                <h5 class="card-title">{{ announce.mo_name }} {{ announce.br_name}}  </h5>
+                <span>Année: {{announce.ve_year}}</span>
+                <div class="card-text"> kilométrage : {{announce.ve_km}}</div>
+                <p class="card-text">Moteur: {{ announce.en_name}} </p>
+                <p class="card-text">Couleur: {{ announce.ve_color}} </p>
+                <p class="card-text">Nombre de portes: {{ announce.ve_doors}} </p>
+                <p class="card-text">Price: {{ announce.ve_price}} € </p> 
+                
+                <a href="#" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tooltip on top">Details</a>
+            </div>
+            <div class="card-footer">
+                <p class="card-text"></p>
+            </div>
+        </article>
+        {% endfor %}
+    </section>
+</main>
 {% endblock %}

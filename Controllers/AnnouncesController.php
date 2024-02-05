@@ -16,9 +16,9 @@ class AnnouncesController
         $twig = new Environment($loader, [
             'cache' => false,
         ]);
-        //$announces = AnnouncesModel::getAllServices();
-        $test = 'Bonjour annonces';
+        $announces = AnnouncesModel::getAnnounces();
+        //$test = 'Bonjour annonces';
 
-        echo $twig->render('Announces/view.twig', ['announces' => $test]);
+        echo $twig->render('Announces/view.twig', ['announces' => $announces]);
     }
 }
