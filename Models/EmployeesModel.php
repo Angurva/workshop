@@ -13,4 +13,12 @@ class EmployeesModel extends AbstractModel
     {
 
     }
+
+    public static function deleteEmployee(int $employeeID):void
+    {
+        $req = parent::getConnection()->prepare("DELETE FROM employees WHERE id=:em_id");
+        $req->bindParam(':em_id', $employeeID);
+        $req->execute();
+        $req-> closeCursor();
+    }
 }

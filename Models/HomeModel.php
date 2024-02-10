@@ -14,8 +14,8 @@ class HomeModel extends AbstractModel
         $req = self::getConnection()->prepare("UPDATE services SET se_description = :description WHERE se_title=:title ");
         $req->bindParam(':description', $description);
         $req->bindParam(':title', $title);
-        $req->execute();        
-
+        $req->execute();  
+        $req-> closeCursor();
     }
 
     protected static function getId(string $title):string

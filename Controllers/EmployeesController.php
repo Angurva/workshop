@@ -2,9 +2,7 @@
 
 namespace Controllers;
 
-use Twig\Environment;
 use Models\EmployeesModel;
-use Twig\Loader\FilesystemLoader;
 
 class EmployeesController 
 {
@@ -18,17 +16,19 @@ class EmployeesController
 
     public static function add():void
     {
-        echo'cool ca marche';
+        
+        header('Location: /management');
 
     }
 
     public static function delete():void
     {
-
+        EmployeesModel::deleteEmployee($_POST['em_id']);
+        header('Location: /management');
     }
 
     public static function update():void
     {
-
+        header('Location: /management');
     }
 }
