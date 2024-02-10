@@ -16,7 +16,7 @@ $(document).ready(function(){
             $('#range').text(min+' - '+max);
 
             $.ajax({
-                url: '/announces',
+                url: '/announces/slider',
                 method: 'POST',
                 data: {
                     min:min,
@@ -26,12 +26,17 @@ $(document).ready(function(){
 
             }) //ajax
             .done(function(response){
-            
+
+
+                    //let announce = JSON.stringify(response);
+                    console.log(response);
                     $('#test').empty();
+                    //$('#test').html(announce);
                     response.forEach(function(item,index,array)
                     {
                         let cardVe = "card_ve_"+index;
                         $('#test').append('<article class="card col-lg-4 m-3 p-0" id='+cardVe+'></article>');
+                        $('#'+cardVe).append('<img src="../'+ item['ve_photo']+'" class="card-img-top img-fluid" alt="" >');
                         $('#'+cardVe).append('<div class="card-body"></div>');
                         $('#'+cardVe+'>.card-body').append('<h5 class="card-title">'+item['mo_name'] + ' ' + item['br_name']+'</h5>');
                         $('#'+cardVe+'>.card-body').append('<div class="card-text">Année: '+item['ve_year'] +'</div>');
@@ -40,7 +45,7 @@ $(document).ready(function(){
                         $('#'+cardVe+'>.card-body').append('<div class="card-text">Couleur: '+item['ve_color'] +'</div>');
                         $('#'+cardVe+'>.card-body').append('<p class="card-text">Nombre de portes: '+item['ve_doors'] +'</p>');
                         $('#'+cardVe+'>.card-body').append('<div class="card-text">Prix: '+item['ve_price'] +' €</div>');                      
-                    }) //forEach
+                    }) //forEach*/
 
             })
             .fail(function(error){

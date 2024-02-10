@@ -4,9 +4,9 @@
             "HomeController",
             "index"
         ],
-        "/service/add":[
+        "/services/update":[
             "HomeController",
-            "add"
+            "update"
         ],
         "/management":[
             "EmployeesController",
@@ -43,6 +43,10 @@
         "/announces/search":[
             "AnnouncesController",
             "search"
+        ],
+        "/announces/slider":[
+            "AnnouncesController",
+            "slider"
         ],
         "/schedule-change":[
             "ScheduleController",
