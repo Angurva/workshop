@@ -40,6 +40,10 @@
             "AnnouncesController",
             "delete"
         ],
+        "/announces/search":[
+            "AnnouncesController",
+            "search"
+        ],
         "/schedule-change":[
             "ScheduleController",
             "change"

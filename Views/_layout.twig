@@ -3,7 +3,9 @@
 
     <head>
         {% include "components/_head.twig" %}
+        {% block javascripts %}{% endblock %}
     </head>
+        
 
     <body onload="datetimeShow()">
         {% include 'components/_header.twig' %}
@@ -11,4 +13,6 @@
         {% block main %}{% endblock %}
 
         {% include 'components/_footer.twig' %}
+
+         
     </body>

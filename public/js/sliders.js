@@ -1,13 +1,3 @@
-
-{% extends '_layout.twig' %}
-
-
-{% block title %}Annonces{% endblock %}
-
-{% block javascripts %}
-<script src="js/jquery-3.7.1.min.js"></script>
-<script src="js/jquery-ui.min.js" type="text/javascript"></script>
-<script type="text/javascript">
 $(document).ready(function(){
 
     $('#sliderPrice').slider({
@@ -61,41 +51,3 @@ $(document).ready(function(){
     }); //slider
 
 });// $document
-</script>
-{% endblock %}
-
-{% block main %}
-
- <main class="container mt-3">
- <div class="search">
-        <label for="customRange2" class="form-label">Example range</label>
-        <span id="range"></span>        
-      </div>
-      <div id="sliderPrice" style="width: 20%;" ></div>
-    <section class="row justify-content-sm-center justify-content-md-evenly justify-content-lg-center p-2" id="test" >
-      
-
-     {% for announce in announces %}  
-        <article class="card col-lg-4 m-3 p-0">
-            <img src="" class="card-img-top img-fluid " alt="" >
-            <div class="card-body">
-                <h5 class="card-title">{{ announce.mo_name }} {{ announce.br_name}}  </h5>
-                <div class="card-text">Année: {{announce.ve_year}}</div>
-                <div class="card-text"> Kilométrage: {{announce.ve_km}}</div>
-                <p class="card-text">Moteur: {{ announce.en_name}} </p>
-                <div class="card-text">Couleur: {{ announce.ve_color}} </div>
-                <p class="card-text">Nombre de portes: {{ announce.ve_doors}} </p>
-                <div class="card-text">Prix: {{ announce.ve_price}} € </div> 
-                
-                <a href="#" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tooltip on top">Details</a>
-            </div>
-            <div class="card-footer">
-                <p class="card-text"></p>
-            </div>
-        </article>
-       {% endfor %}
-    </section>
-</main>
-{% endblock %}
- 
-{% flush %}

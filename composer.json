@@ -17,6 +17,7 @@
         }
     },
     "require": {
-        "twig/twig": "^3.8"
+        "twig/twig": "^3.8",
+        "laminas/laminas-http": "^2.19"
     }
 }
