@@ -20,6 +20,10 @@
             "LoginController",
             "logout"
         ],
+        "/contact":[
+            "ContactController",
+            "contactForm"
+        ],
         "/management":[
             "EmployeesController",
             "index"

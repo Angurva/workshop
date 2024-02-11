@@ -12,14 +12,13 @@ class ContactsModel extends AbstractModel
     //CREATE FORM CONTACT 
     public static function addContact(array $form):void
     {
-        $req = self::getConnection()->prepare("INSERT INTO contacts (firstname,lastname,email,tel,subject,description,create_at) VALUES (:fname,:lname,:email,:phone,:subject,:description,:createat)");
-        $req->bindParam(':fname',$form['firstname']);
-        $req->bindParam(':lname',$form['lastname']);
-        $req->bindParam(':email',$form['email']);
-        $req->bindParam(':phone',$form['tel']);
-        $req->bindParam(':subject',$form['subject']);
-        $req->bindParam(':description',$form['description']);
-        $req->bindParam(':createat',self::getCreateAt());
+        $req = parent::getConnection()->prepare("INSERT INTO contacts (co_firstname,co_lastname,co_email,co_phone,co_subject,co_description) VALUES (:co_firstname,:co_lastname,:co_email,:co_phone,:co_subject,:co_description)");
+        $req->bindParam(':co_firstname',$form['co_firstname']);
+        $req->bindParam(':co_lastname',$form['co_lastname']);
+        $req->bindParam(':co_email',$form['co_email']);
+        $req->bindParam(':co_phone',$form['co_phone']);
+        $req->bindParam(':co_subject',$form['co_subject']);
+        $req->bindParam(':co_description',$form['co_description']);
         $req->execute();
         $req->closeCursor();
 
