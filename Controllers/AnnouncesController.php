@@ -2,8 +2,9 @@
 
 namespace Controllers;
 
-
 use Models\AnnouncesModel;
+
+require('../App/functions.php');
 
 class AnnouncesController
 {
@@ -16,7 +17,9 @@ class AnnouncesController
 
     public function slider(): void
     {   
-        $announces = AnnouncesModel::getSearch($_POST['min'],$_POST['max']);
+        $min = \sanitizeString($_POST['min']);
+        $max = \sanitizeString($_POST['max']);
+        $announces = AnnouncesModel::getSearch($min,$max);
         echo json_encode($announces);
     }
 }

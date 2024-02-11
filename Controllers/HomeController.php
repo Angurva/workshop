@@ -4,6 +4,7 @@ namespace Controllers;
 
 use Models\HomeModel;
 
+require_once('../App/functions.php');
 
 class HomeController{
 
@@ -13,27 +14,23 @@ class HomeController{
     {
 
         $services = HomeModel::getAllServices();
-        //var_dump($services[0]["se_title"]);
         require(dirname(__DIR__).DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'pages'.DIRECTORY_SEPARATOR.'home.php');
 
     }
 
     public function update(): void
     {
-        HomeModel:: update($_POST['title'], $_POST['description']);
-        header('Location: /');
+        if(isset($_POST['title']) &&  $_POST['description'])
+        {
+            $title = sanitizeString($_POST['title']);
+            $description = \sanitizeString($_POST['description']);
+            HomeModel:: update($title, $description);
+            header('Location: /');
+        }
+        else{
+            die();
+        }
+       
     }
-   /* public function index()
-    {
-
-        $loader = new FilesystemLoader(dirname(__DIR__).'/Views');
-        $twig = new Environment($loader, [
-            'cache' => false,
-        ]);
-        $services = HomeModel::getAllServices();
-        //var_dump($services);
-        
-        echo $twig->render('Home/view.twig', ['services' => $services]);
-
-    }*/
+  
 }

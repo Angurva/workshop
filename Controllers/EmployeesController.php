@@ -4,6 +4,8 @@ namespace Controllers;
 
 use Models\EmployeesModel;
 
+require_once('../App/functions.php');
+
 class EmployeesController 
 {
    
@@ -16,13 +18,19 @@ class EmployeesController
 
     public static function add():void
     {
-        EmployeesModel::addEmployee($_POST['em_firstname'],$_POST['em_lastname'],$_POST['em_email'],$_POST['em_password']);
+        $em_firstname = \sanitizeString($_POST['em_firstname']);
+        $em_lastname = \sanitizeString($_POST['em_lastname']);
+        $em_email = \sanitizeString($_POST['em_email']);
+        $em_password = \sanitizeString($_POST['em_password']);
+
+        EmployeesModel::addEmployee($em_firstname,$em_lastname,$em_email,$em_password);
         header('Location: /management');
 
     }
 
     public static function delete():void
     {
+
         EmployeesModel::deleteEmployee($_POST['em_id']);
         header('Location: /management');
     }

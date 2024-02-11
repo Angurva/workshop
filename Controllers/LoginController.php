@@ -6,6 +6,7 @@ use Models\LoginModel;
 use Models\ContactsModel;
 use Models\OpinionsModel;
 
+require_once('../App/functions.php');
 
 class LoginController
 {
@@ -20,7 +21,9 @@ class LoginController
     {
         if (isset($_POST['email']) && isset($_POST['password']))
         {
-            $result = LoginModel::verify($_POST['email'], $_POST['password']);
+            $email = \sanitizeString($_POST['email']);
+            $password = \sanitizeString($_POST['password']);
+            $result = LoginModel::verify($email, $password);
             var_dump($result);
             if (is_array($result))
             {
