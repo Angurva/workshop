@@ -3,6 +3,8 @@
 namespace Controllers;
 
 use Models\LoginModel;
+use Models\ContactsModel;
+use Models\OpinionsModel;
 
 
 class LoginController
@@ -27,7 +29,8 @@ class LoginController
                 $_SESSION['prenom'] = $result['em_firstname'];
                 $_SESSION['nom'] = $result['em_lastname'];
                 $_SESSION['role'] = $result['ro_id'];
-                
+                $_SESSION['co_pending'] = ContactsModel::pending();
+                $_SESSION['op_pending'] = OpinionsModel::pending();
                 //require(dirname(__DIR__).DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'pages'.DIRECTORY_SEPARATOR.'home.php');
                 header('Location: /');
             }

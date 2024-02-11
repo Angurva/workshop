@@ -25,4 +25,14 @@ class OpinionsModel extends AbstractModel
     {
 
     }
+    public static function pending():int|string
+    {
+        $req = parent::getConnection()->prepare("SELECT COUNT(*) FROM opinions WHERE op_status = 'pending'");
+        $req->execute();
+        $nbPending = $req->fetch(\PDO::FETCH_NUM);
+        $req->closeCursor();
+        return $nbPending[0];
+
+    }
+
 }

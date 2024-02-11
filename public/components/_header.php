@@ -24,8 +24,18 @@
         {
         ?>
           <div class="navbar-nav ms-auto me-3 d-none d-lg-flex ">
-          <a href="#"><img src="assets/icons8-commentaire-48.png" alt="" class="mt-1 me-3"></a>
-          <a href="#"><img src="assets/icons8-nouveau-message-48.png" alt=""class="me-5"></a>
+          <button type="button" class="btn btn-primary position-relative me-5 mt-3" style="height:30px"><i class="bi bi-chat-square-dots"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+               <?php echo $_SESSION['op_pending'] ?>
+            </span>
+          </button>
+          <!--<a href="#"><img src="assets/icons8-commentaire-48.png" alt="" class="mt-1 me-3"></a>-->
+          <button type="button" class="btn btn-primary position-relative me-5 mt-3" style="height:30px"><i class="bi bi-envelope-arrow-down"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+               <?php echo $_SESSION['co_pending'] ?>
+            </span>
+          </button>
+         
           <div><?php echo $_SESSION['prenom'].' ' . $_SESSION['nom'] ?></div>
           <a class="nav-item nav-link text-color-a" href="/connection/logout">logout</a>
           <?php
@@ -41,7 +51,7 @@
     </nav>
   </header>
 
-  <div class="modal fade" id="formContact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="formContact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
       <div class="modal-header">

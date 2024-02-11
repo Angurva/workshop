@@ -23,6 +23,15 @@ class ContactsModel extends AbstractModel
         $req->closeCursor();
 
     }
+    public static function pending():int|string
+    {
+        $req = parent::getConnection()->prepare("SELECT COUNT(*) FROM contacts WHERE co_status = 'pending'");
+        $req->execute();
+        $nbPending = $req->fetch(\PDO::FETCH_NUM);
+        $req->closeCursor();
+        return $nbPending[0];
+
+    }
 
     
 
