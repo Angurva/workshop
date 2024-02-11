@@ -24,20 +24,20 @@
         {
         ?>
           <div class="navbar-nav ms-auto me-3 d-none d-lg-flex ">
-          <button type="button" class="btn btn-primary position-relative me-5 mt-3" style="height:30px"><i class="bi bi-chat-square-dots"></i>
+          <button type="button" class="btn btn-primary position-relative me-5 mt-2" style="height:30px"><i class="bi bi-chat-square-dots"></i>
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                <?php echo $_SESSION['op_pending'] ?>
             </span>
           </button>
           <!--<a href="#"><img src="assets/icons8-commentaire-48.png" alt="" class="mt-1 me-3"></a>-->
-          <button type="button" class="btn btn-primary position-relative me-5 mt-3" style="height:30px"><i class="bi bi-envelope-arrow-down"></i>
+          <button type="button" class="btn btn-primary position-relative me-5 mt-2" style="height:30px"><i class="bi bi-envelope-arrow-down"></i>
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                <?php echo $_SESSION['co_pending'] ?>
             </span>
           </button>
          
-          <div><?php echo $_SESSION['prenom'].' ' . $_SESSION['nom'] ?></div>
-          <a class="nav-item nav-link text-color-a" href="/connection/logout">logout</a>
+          <div class="mt-2"><?php echo $_SESSION['prenom'].' ' . $_SESSION['nom'] ?></div>
+          <a class="nav-item nav-link text-color-a fs-6 fst-italic text-decoration-underline " href="/connection/logout">logout</a>
           <?php
         }
         else{

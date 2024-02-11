@@ -9,8 +9,6 @@ class ContactController
 {
     public function contactForm():void
     {
-        //$array = sanitizeForm($_POST);
-
         ContactsModel::addContact($this->sanitizeForm($_POST));
         header('Location: /');
        
@@ -20,8 +18,6 @@ class ContactController
     {
         foreach($form as $key => $data)
         {
-            //var_dump(key($form));
-            //var_dump($data);
             $formSanitize[$key] = sanitizeString($data);
         }
         return $formSanitize;
