@@ -8,6 +8,18 @@
             "HomeController",
             "update"
         ],
+        "/connection":[
+            "LoginController",
+            "index"
+        ],
+        "/connection/login":[
+            "LoginController",
+            "login"
+        ],
+        "/connection/logout":[
+            "LoginController",
+            "logout"
+        ],
         "/management":[
             "EmployeesController",
             "index"
@@ -51,6 +63,10 @@
         "/schedule-change":[
             "ScheduleController",
             "change"
+        ],
+        "/404":[
+            "ErrorPageController",
+            "error"
         ]
     }
 

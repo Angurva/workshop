@@ -16,7 +16,7 @@ class EmployeesController
 
     public static function add():void
     {
-        
+        EmployeesModel::addEmployee($_POST['em_firstname'],$_POST['em_lastname'],$_POST['em_email'],$_POST['em_password']);
         header('Location: /management');
 
     }

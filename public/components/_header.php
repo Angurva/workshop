@@ -19,10 +19,23 @@
       <div class="navbar-nav offset-2 me-5 d-none d-lg-flex">
         <div class="navbar-text text-color" id="daytime"> </div>
       </div>
-      <div class="navbar-nav ms-auto me-3 d-none d-lg-flex ">
-        <a href="#"><img src="assets/icons8-commentaire-48.png" alt="" class="mt-1 me-3"></a>
-        <a href="#"><img src="assets/icons8-nouveau-message-48.png" alt=""class="me-5"></a>
-        <a class="nav-item nav-link text-color-a" href="#">se connecter</a>
+      <?php 
+        if(isset($_SESSION['id']))
+        {
+        ?>
+          <div class="navbar-nav ms-auto me-3 d-none d-lg-flex ">
+          <a href="#"><img src="assets/icons8-commentaire-48.png" alt="" class="mt-1 me-3"></a>
+          <a href="#"><img src="assets/icons8-nouveau-message-48.png" alt=""class="me-5"></a>
+          <div><?php echo $_SESSION['prenom'].' ' . $_SESSION['nom'] ?></div>
+          <a class="nav-item nav-link text-color-a" href="/connection/logout">logout</a>
+          <?php
+        }
+        else{
+          ?>
+          <a class="nav-item nav-link text-color-a ms-auto me-5" href="/connection">se connecter</a>
+          <?php
+        }
+        ?>
       </div>
       
     </nav>

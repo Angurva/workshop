@@ -10,45 +10,25 @@ require_once(dirname(__DIR__).DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARAT
             <div class="col-sm-12 col-lg-4 border rounded shadow me-4 servicing">
                 <h4 class="m-3"><?php echo $services[0]['se_title']; //var_dump($services[0]["se_title"]); ?></h4>
                 <p class="m-3"><?php echo $services[0]['se_description']; ?></p>
-                <?php
-                  if(isset($_SESSION['id']) && $_SESSION['role']== 1)
-                  {
-                ?>
-                  <button type="button" class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#modal_mod_ent" id="btn_modal_ent">
-                    Modifier
-                  </button>
-                  <?php
-                }
-                ?>
+                <button type="button" class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#modal_mod_ent" id="btn_modal_ent">
+                  Modifier
+                </button>
+                
             </div>
             <div class="col-sm-12 col-lg-6 row">
                 <div class="col-sm-12 border rounded shadow mb-4 servicing">
                     <h4 class="m-3"><?php echo $services[1]['se_title']; ?></h4>
                     <p class="m-3"><?php echo $services[1]['se_description']; ?> </p>
-                    <?php
-                      if(isset($_SESSION['id']) && $_SESSION['role']== 1)
-                      {
-                    ?>
-                      <button type="button" class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#modal_mod_mec" id="btn_modal_mec">
-                        Modifier
-                      </button>
-                    <?php
-                      }
-                    ?>
+                    <button type="button" class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#modal_mod_mec" id="btn_modal_mec">
+                      Modifier
+                    </button>
                 </div>
                 <div class="col-sm-12 border rounded shadow servicing">
                     <h4 class="m-3"><?php echo $services[2]['se_title']; ?></h4>
                     <p class="m-3"><?php echo $services[2]['se_description']; ?></p>
-                    <?php
-                      if(isset($_SESSION['id']) && $_SESSION['role']== 1)
-                      {
-                    ?>
-                      <button type="button" class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#modal_mod_car" id="btn_modal_car">
-                        Modifier
-                      </button>
-                    <?php
-                      }
-                    ?>
+                    <button type="button" class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#modal_mod_car" id="btn_modal_car">
+                      Modifier
+                    </button>
                 </div>
             </div>
         </article>
@@ -89,24 +69,19 @@ require_once(dirname(__DIR__).DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARAT
     </section>
 </main>
 
-
-<?php
-  if(isset($_SESSION['id']) && $_SESSION['role']== 1)
-  {
-?>
 <div class="modal fade" id="modal_mod_ent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title" id="exampleModalLabel">Texte à modifier</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
         <div class="modal-body">
           <form action="/services/update" method="POST">
-            <input type="text" name="title" readonly value=<?php echo $services[0]['se_title']; ?> class="form-control">
-            <textarea name="description" id="" cols="100" rows="10" class="form-control my-3"><?php echo $services[0]['se_description']; ?></textarea>
+            <input type="text" name="title" readonly value=<?php echo $services[0]['se_title']; ?> >
+            <textarea name="description" id="" cols="100" rows="10"><?php echo $services[0]['se_description']; ?></textarea>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary">Save changes</button>
           </form>
@@ -120,14 +95,14 @@ require_once(dirname(__DIR__).DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARAT
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title" id="exampleModalLabel">Texte à modifier</h4>
-        <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
         <div class="modal-body">
           <form action="/services/update" method="POST">
-            <input type="text" name="title" readonly value=<?php echo $services[1]['se_title']; ?> class="form-control">
-            <textarea name="description" id="" cols="100" rows="10" class="form-control my-3"><?php echo $services[1]['se_description']; ?></textarea>
+            <input type="text" name="title" readonly value=<?php echo $services[1]['se_title']; ?> >
+            <textarea name="description" id="" cols="100" rows="10"><?php echo $services[1]['se_description']; ?></textarea>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary">Save changes</button>
           </form>
@@ -141,14 +116,14 @@ require_once(dirname(__DIR__).DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARAT
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title" id="exampleModalLabel">Texte à modifier</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
         <div class="modal-body">
           <form action="/services/update" method="POST">
-            <input type="text" name="title" readonly value=<?php echo $services[2]['se_title']; ?> class="form-control" >
-            <textarea name="description" id="" cols="100" rows="10" class="form-control my-3"><?php echo $services[2]['se_description']; ?></textarea>
+            <input type="text" name="title" readonly value=<?php echo $services[2]['se_title']; ?> >
+            <textarea name="description" id="" cols="100" rows="10"><?php echo $services[2]['se_description']; ?></textarea>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary">Save changes</button>
           </form>
@@ -156,9 +131,7 @@ require_once(dirname(__DIR__).DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARAT
     </div>
   </div>
 </div>
-<?php
-  }
-?>
+
 <?php
 require_once(dirname(__DIR__).DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'_footer.php');
 ?>

@@ -14,7 +14,7 @@ class OpinionsModel extends AbstractModel
 
     public static function createOpinion($surname,$note,$comments):void
     {
-        $req = self::getConnection()->prepare("INSERT INTO " . self::OPINIONS . "(surname,note,comments) VALUES (:surname,:note,:comments,:idstatus)" );
+        $req = parent::getConnection()->prepare("INSERT INTO " . self::OPINIONS . "(surname,note,comments) VALUES (:surname,:note,:comments,:idstatus)" );
         $req->bindParam(':surname', $surname);
         $req->bindParam(':note', $note);
         $req->bindParam(':comments', $comments);
