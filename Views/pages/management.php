@@ -1,8 +1,11 @@
 <?php
+ if(isset($_SESSION['id']) && $_SESSION['role']== 1)
+ {
+     
+$pageTitle = 'management';
+//require_once('..'.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'_head.php');
 
-require_once(dirname(__DIR__).DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'_head.php');
-
-require_once(dirname(__DIR__).DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'_header.php');
+//require_once('..'.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'_header.php');
 ?>
 <main class="container ms-auto">
         <div class="mx-0 my-4">
@@ -34,20 +37,19 @@ require_once(dirname(__DIR__).DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARAT
                         </button>
                         
                     </form>
-                    <form action="/management/update">
-                        <button type="submit" class="btn btn-lg btn-outline-primary ">
+                   <form action="/management-update" method="POST">
+                      <input type="hidden" name="em_id" value="<?php echo $employee['em_id'] ?>">
+                        <button type="submit" class="btn btn-lg btn-outline-primary">
                             <span><i class="bi bi-pencil-square"></i></span>
                         </button>
-                    </form>
+                   </form>
                 </div>
             </div>
+           
             <?php  endforeach; ?>
         </div>
     </main>
 
-<?php
-require_once(dirname(__DIR__).DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'_footer.php');
-?>
 
 <div class="modal fade" id="modal_newuser" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -90,30 +92,9 @@ require_once(dirname(__DIR__).DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARAT
     </div>
   </div>
 </div>
-
-<div class="modal fade" id="modal_change" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLabel">Texte à modifier</h4>
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-        <div class="modal-body">
-          <form action="/services/update" method="POST">
-          <div class="card-text">Id:<?php echo $employee['em_id'] ?></div>
-            <div class="card-title">Nom: <input type="text" name="title" value=<?php echo $employee['em_firstname'] ?>></div>
-            <div class="card-subtitle">Prénom: <?php echo $employee['em_lastname'] ?> </div>
-            <div class="card-text">Email: <?php echo $employee['em_email'] ?></div>
-            <div class="card-text">Password : <?php echo $employee['em_password'] ?></div>
-            <div class="card-text">Role: <?php echo $employee['ro_id'] ?></div>
-            <div class="card-text">créé le: <?php echo $employee['em_createAt'] ?></div>
-            
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
-          </form>
-        </div>
-    </div>
-  </div>
-</div>
+<?php
+}
+else{
+  header('Location: /404');
+}
+?>

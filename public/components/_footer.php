@@ -11,12 +11,17 @@
             </tr>
           </thead>
           <tbody>
+            
+            <?php
+              //header('Location: /scheduler');
+              foreach ($schedulers as $scheduler): ?>
             <tr class="">
-              <th class="px-4 " scope="row">Lundi</th>
-              <td class="px-4">09:00 - 12:00</td>
-              <td class="px-4">14:00 - 18:00</td>
+              <th class="px-4 " scope="row"><?php echo $scheduler['sc_day'] ?></th>
+              <td class="px-4" > <time><?php echo $scheduler['sc_am_start'] ?></time> - <?php echo $scheduler['sc_am_end'] ?></td>
+              <td class="px-4"><?php echo $scheduler['sc_ap_start'] ?> - <?php echo $scheduler['sc_ap_end'] ?></td>
             </tr>
-            <tr>
+            <?php endforeach ?>
+           <!-- <tr>
               <th class="px-4" scope="row">Mardi</th>
               <td class="px-4">09:00 - 12:00</td>
               <td class="px-4">14:00 - 18:00</td>
@@ -35,9 +40,19 @@
               <th class="px-4" scope="row">Vendredi</th>
               <td class="px-4">09:00 - 12:00</td>
               <td class="px-4">14:00 - 18:00</td>
-            </tr>
+            </tr>-->
           </tbody>
         </table>
+        <?php
+          if(isset($_SESSION['id']) && $_SESSION['role']== 1)
+          {
+        ?>
+          <button type="button" class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#modal_scheduler" id="btn_modal_scheduler">
+            Modifier
+          </button>
+        <?php
+          }
+        ?>
       </div><!-- ************************ -->
       <div class="col-sm-12 col-lg-4 row align-items-center offset-1">
         <!--<div class="col-sm-6">-->
@@ -60,6 +75,39 @@
         <span class="cluf">&#127279; copyleft | Angurva 2024.</span>
     </div>
   </footer>  
+
+<div class="modal fade" id="modal_scheduler" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Texte à modifier</h4>
+        <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <div class="modal-body">
+          <form action="/scheduler/change" method="POST">
+            <?php foreach($schedulers as $scheduler): ?>
+            <div>
+            <label for="" name=""><?php echo $scheduler['sc_day'] ?></label>
+            <input type="hidden" name="sc_day" value="<?php echo $scheduler['sc_day']?>">
+            <input type="time" datetime="00:00" name="sc_am_start" value="<?php echo $scheduler['sc_am_start'] ?>">  <input type="time" name="sc_am_end" value="<?php echo $scheduler['sc_am_end'] ?>" >
+            <input type="time" name="sc_ap_start" value="<?php echo $scheduler['sc_ap_start'] ?>">  <input type="time" name="sc_ap_end" value="<?php echo $scheduler['sc_ap_end'] ?>" >
+            </div>
+            <?php endforeach ?>
+            <!--
+            <input type="text" name="title" readonly value=<?php echo $services[1]['se_title']; ?> class="form-control">
+            <textarea name="description" id="" cols="100" rows="10" class="form-control my-3"><?php //echo $services[1]['se_description']; ?></textarea>-->
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+          </form>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/jquery-ui.min.js"></script>

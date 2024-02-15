@@ -64,4 +64,53 @@ class AnnouncesModel extends AbstractModel
         return $result[0];
     }
 
+    public static function getBrands():array
+    {
+        $req = parent::getConnection()->prepare("SELECT * FROM brands");
+        $req->execute();
+        $result = $req->fetchAll(\PDO::FETCH_ASSOC);
+        $req->closeCursor();
+        return $result;
+
+    }
+    public static function getModels():array
+    {
+        $req = parent::getConnection()->prepare("SELECT * FROM models");
+        $req->execute();
+        $result = $req->fetchAll(\PDO::FETCH_ASSOC);
+        $req->closeCursor();
+        return $result;
+        
+    }
+    public static function getModelsBrand():array
+    {
+        $req = parent::getConnection()->prepare("SELECT b.br_name, m.mo_name
+        FROM brands AS b
+        LEFT JOIN models AS m ON b.br_id = m.br_id");
+        $req->execute();
+        $result = $req->fetchAll(\PDO::FETCH_ASSOC);
+        $req->closeCursor();
+        return $result;
+        
+    }
+    public static function getEnergies():array
+    {
+        $req = parent::getConnection()->prepare("SELECT * FROM energies");
+        $req->execute();
+        $result = $req->fetchAll(\PDO::FETCH_ASSOC);
+        $req->closeCursor();
+        return $result;
+        
+    }
+
+    public static function getEquipments():array
+    {
+        $req = parent::getConnection()->prepare("SELECT * FROM equipments");
+        $req->execute();
+        $result = $req->fetchAll(\PDO::FETCH_ASSOC);
+        $req->closeCursor();
+        return $result;
+        
+    }
+
 }

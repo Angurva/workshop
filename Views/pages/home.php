@@ -1,8 +1,9 @@
 <?php
+$pageTitle = 'HomePage';
 
-require_once(dirname(__DIR__).DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'_head.php');
+//require_once('..'.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'_head.php');
 
-require_once(dirname(__DIR__).DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'_header.php');
+//require_once('..'.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'_header.php');
 ?>
 <main class="container-fluid p-0 m-0">
     <section class="row p-0 m-0">
@@ -60,7 +61,6 @@ require_once(dirname(__DIR__).DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARAT
               <div>Gertrude <span>⭐⭐⭐⭐</span></div>
               <div> Note:4/5 </div>
               <div>Commentaire : super génial Natus quam reiciendis alias atque iure nihil</div>
-  
             </div>
             <div class="col-2">
               <div>Cunegonde <span>⭐⭐⭐</span></div>
@@ -108,7 +108,7 @@ require_once(dirname(__DIR__).DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARAT
             <input type="text" name="title" readonly value=<?php echo $services[0]['se_title']; ?> class="form-control">
             <textarea name="description" id="" cols="100" rows="10" class="form-control my-3"><?php echo $services[0]['se_description']; ?></textarea>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
           </form>
         </div>
     </div>
@@ -160,5 +160,5 @@ require_once(dirname(__DIR__).DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARAT
   }
 ?>
 <?php
-require_once(dirname(__DIR__).DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'_footer.php');
+//require_once('..'.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'_footer.php');
 ?>

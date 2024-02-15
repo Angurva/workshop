@@ -4,6 +4,30 @@
             "HomeController",
             "index"
         ],
+        "/announces":[
+            "AnnouncesController",
+            "index"
+        ],
+        "/announces-add":[
+            "AnnouncesController",
+            "add"
+        ],
+        "/announces/update":[
+            "AnnouncesController",
+            "update"
+        ],
+        "/announces/delete":[
+            "AnnouncesController",
+            "delete"
+        ],
+        "/announces/search":[
+            "AnnouncesController",
+            "search"
+        ],
+        "/announces/slider":[
+            "AnnouncesController",
+            "slider"
+        ],
         "/services/update":[
             "HomeController",
             "update"
@@ -25,48 +49,48 @@
             "contactForm"
         ],
         "/management":[
-            "EmployeesController",
+            "ManagementController",
             "index"
         ],
+        "/management-update":[
+            "ManagementController",
+            "updatePage"
+        ],
         "/management/add":[
-            "EmployeesController",
+            "ManagementController",
             "add"
         ],
         "/management/update":[
-            "EmployeesController",
+            "ManagementController",
             "update"
         ],
         "/management/delete":[
-            "EmployeesController",
+            "ManagementController",
             "delete"
         ],
-        "/announces":[
-            "AnnouncesController",
+        "/management/change-pwd":[
+            "ManagementController",
+            "changePWD"
+        ],
+        "/opinions":[
+            "OpinionsController",
             "index"
         ],
-        "/announces/add":[
-            "AnnouncesController",
-            "add"
+        "/opinions/accept":[
+            "OpinionsController",
+            "accept"
         ],
-        "/announces/update":[
-            "AnnouncesController",
-            "update"
+        "/opinions/reject":[
+            "OpinionsController",
+            "reject"
         ],
-        "/announces/delete":[
-            "AnnouncesController",
-            "delete"
+        "/scheduler":[
+            "SchedulersController",
+            "index"
         ],
-        "/announces/search":[
-            "AnnouncesController",
-            "search"
-        ],
-        "/announces/slider":[
-            "AnnouncesController",
-            "slider"
-        ],
-        "/schedule-change":[
-            "ScheduleController",
-            "change"
+        "/scheduler/change":[
+            "SchedulersController",
+            "changeScheduler"
         ],
         "/404":[
             "ErrorPageController",

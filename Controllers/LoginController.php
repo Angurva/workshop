@@ -14,7 +14,7 @@ class LoginController
     public function index()
     {
 
-        require(dirname(__DIR__).DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'pages'.DIRECTORY_SEPARATOR.'connection.php');
+        require(dirname(__DIR__).DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'pages'.DIRECTORY_SEPARATOR.'connection.php');
     }
 
     public function login()
@@ -24,7 +24,7 @@ class LoginController
             $email = \sanitizeString($_POST['email']);
             $password = \sanitizeString($_POST['password']);
             $result = LoginModel::verify($email, $password);
-            var_dump($result);
+            //var_dump($result);
             if (is_array($result))
             {
                 session_start();

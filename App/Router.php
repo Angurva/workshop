@@ -13,11 +13,15 @@ use Exceptions\ClassControllerNameNotFoundException;
 
 class Router{
 
-    use Tools;
-
     private array $routes;
     private const CONTROLLERS = 'Controllers';
 
+
+    /**
+     * function to record routes find to file JSON listpathRoutes.json
+     * @param $pathfile path file for record uri with controller => class and method
+     * @return void not return
+     */
     public function recordRoutes(string $pathFile):void
     {   
        if (file_exists($pathFile) && (is_file($pathFile))) 
@@ -41,6 +45,11 @@ class Router{
        }  
     }
 
+    /** 
+    * Method run check uri  into url and call callable or class . here class and are called if uri exist into listPathRoutes.json and controllers 
+    * @param string uri to treatment
+    * @return  callable | array [class,method]
+    */
     public function run(string $uri): mixed
     {
         $path = explode('?', $uri)[0];

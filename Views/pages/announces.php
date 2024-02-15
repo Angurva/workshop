@@ -1,11 +1,17 @@
 <?php
+$pageTitle = 'annonces';
+//require_once('..'.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'_head.php');
 
-require_once(dirname(__DIR__).DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'_head.php');
-
-require_once(dirname(__DIR__).DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'_header.php');
+//require_once('..'.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'_header.php');
 ?>
  <main class="container mt-3">
-    
+    <?php
+    if(isset($_SESSION['id']) && ($_SESSION['role'] == 1 || $_SESSION['role'] == 2))
+    {
+    ?>
+    <a href="/announces-add" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tooltip on top">Ajouter une Annonce</a>
+
+        <?php } ?>
       <div class="search ms-5">
         <label for="sliderPrice" class="form-label">Prix: </label>
         <span id="range"></span><span> €</span>
@@ -25,6 +31,13 @@ require_once(dirname(__DIR__).DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARAT
                 <p class="card-text">Nombre de portes: <?php echo $announce['ve_doors'] ?> </p>
                 <div class="card-text">Prix: <?php echo $announce['ve_price'] ?> € </div> 
                 <a href="#" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tooltip on top">Details</a>
+                <?php
+                      if(isset($_SESSION['id']) && ($_SESSION['role'] == 1 || $_SESSION['role'] == 2))
+                      {
+                ?>
+                <a href="#" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tooltip on top">Modifier</a>
+
+                <?php } ?>
             </div>
         </article>
 
@@ -33,5 +46,5 @@ require_once(dirname(__DIR__).DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARAT
   </main>
 
 <?php
-require_once(dirname(__DIR__).DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'_footer.php');
+//require_once('..'.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'_footer.php');
 ?>

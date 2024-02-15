@@ -14,17 +14,31 @@ class OpinionsModel extends AbstractModel
 
     public static function createOpinion($surname,$note,$comments):void
     {
-        $req = parent::getConnection()->prepare("INSERT INTO " . self::OPINIONS . "(surname,note,comments) VALUES (:surname,:note,:comments,:idstatus)" );
+        $req = parent::getConnection()->prepare("INSERT INTO " . self::OPINIONS . "(op_surname,op_note,op_comments) VALUES (:surname,:note,:comments)" );
         $req->bindParam(':surname', $surname);
         $req->bindParam(':note', $note);
         $req->bindParam(':comments', $comments);
-        $req->bindParam(':idstatus', 1);
     }
 
-    public static function acceptOpinion():void
+    public static function accept(int|string $op_id):void
     {
+        $req = parent::getConnection()->prepare("UPDATE opinions SET op_status = :op_status WHERE op_id = :op_id");
+        $req->bindValue(':op_id', $op_id);
+        $req->bindValue(':op_status', 'accept');
+        $req->execute();
+        $req->closeCursor();
+    }
+
+    public static function reject(int|string $op_id):void
+    {
+        $req = parent::getConnection()->prepare("UPDATE opinions SET op_status = :op_status WHERE op_id = :op_id");
+        $req->bindValue(':op_id', $op_id);
+        $req->bindValue(':op_status', 'reject');
+        $req->execute();
+        $req->closeCursor();
 
     }
+
     public static function pending():int|string
     {
         $req = parent::getConnection()->prepare("SELECT COUNT(*) FROM opinions WHERE op_status = 'pending'");
@@ -33,6 +47,14 @@ class OpinionsModel extends AbstractModel
         $req->closeCursor();
         return $nbPending[0];
 
+    }
+    public static function getPending():array
+    {
+        $req = parent::getConnection()->prepare("SELECT * FROM opinions WHERE op_status = 'pending'");
+        $req->execute();
+        $result = $req->fetchAll();
+        $req->closeCursor();
+        return $result;
     }
 
 }
