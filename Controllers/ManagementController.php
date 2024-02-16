@@ -74,7 +74,7 @@ class ManagementController
         {
             $password = $_POST['new_password'];
             $password = \sanitizeString ($password);
-            EmployeesModel::changePWD($password);
+            ManagementModel::changePWD($password);
             header("Location: /");
         }
        else{

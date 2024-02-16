@@ -30,6 +30,7 @@ class AnnouncesController
 
     public function add():void
     {
+        session_start();
         $brands = AnnouncesModel::getBrands();
         $models = AnnouncesModel::getModels();
         $modelsBrand = AnnouncesModel::getModelsBrand();

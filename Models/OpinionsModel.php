@@ -56,5 +56,13 @@ class OpinionsModel extends AbstractModel
         $req->closeCursor();
         return $result;
     }
+    public static function getAccept():array
+    {
+        $req = parent::getConnection()->prepare("SELECT * FROM opinions WHERE op_status = 'accept'");
+        $req->execute();
+        $result = $req->fetchAll();
+        $req->closeCursor();
+        return $result;
+    }
 
 }

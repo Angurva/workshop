@@ -6,7 +6,7 @@ $pageTitle = 'annonces';
 ?>
  <main class="container mt-3">
     <?php
-    if(isset($_SESSION['id']) && ($_SESSION['role'] == 1 || $_SESSION['role'] == 2))
+    if(isset($_SESSION['id']) && ($_SESSION['role'] == 1 || $_SESSION['role'] == 2 || $_SESSION['role']== 3))
     {
     ?>
     <a href="/announces-add" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tooltip on top">Ajouter une Annonce</a>
@@ -32,10 +32,10 @@ $pageTitle = 'annonces';
                 <div class="card-text">Prix: <?php echo $announce['ve_price'] ?> € </div> 
                 <a href="#" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tooltip on top">Details</a>
                 <?php
-                      if(isset($_SESSION['id']) && ($_SESSION['role'] == 1 || $_SESSION['role'] == 2))
+                      if(isset($_SESSION['id']) && ($_SESSION['role'] == 1 || $_SESSION['role'] == 2 || $_SESSION['role']== 3))
                       {
                 ?>
-                <a href="#" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tooltip on top">Modifier</a>
+                <!--<a href="#" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tooltip on top">Modifier</a>-->
 
                 <?php } ?>
             </div>

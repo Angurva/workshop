@@ -57,13 +57,22 @@ $pageTitle = 'HomePage';
         <div class="col-sm-12 col-lg-10 rounded shadow p-0 mt-4 opinions">
           <h5 class="text-center m-3"> Temoignages de nos clients </h5>
           <div class="row justify-content-around mx-0">
+            <?php foreach($opinions as $opinion): ?>
             <div class="col-2 p-0">
-              <div>Gertrude <span>⭐⭐⭐⭐</span></div>
-              <div> Note:4/5 </div>
-              <div>Commentaire : super génial Natus quam reiciendis alias atque iure nihil</div>
+              <div> <?= $opinion['op_surname'] ?></div>
+              <div><span>
+               <?php for ($i=0;$i<$opinion['op_note'];$i++)
+               {
+                  echo '⭐';
+               } ?>
+               </span>
+               </div>
+              <div><?= $opinion['op_comments'] ?></div>
             </div>
+            <?php endforeach ?>
+            <!--
             <div class="col-2">
-              <div>Cunegonde <span>⭐⭐⭐</span></div>
+              <div>Cunegonde <span>⭐⭐⭐⭐⭐⭐⭐</span></div>
               <div> Note:3/5 </div>
               <div>Commentaire : Natus quam reiciendis alias atque iure nihil</div>
             </div>
@@ -82,7 +91,8 @@ $pageTitle = 'HomePage';
               <div> Note:4/5 </div>
               <div>Commentaire :Vgénial Natus quam reiciendis?</div>
             </div>
-
+            -->
+           
           </div>
         </div>
       </aside>

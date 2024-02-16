@@ -55,8 +55,8 @@
             </button>
             </form>
           <!--<a href="#"><img src="assets/icons8-commentaire-48.png" alt="" class="mt-1 me-3"></a>-->
-            <form action="/forms-list" method="POST">
-            <button type="button" class="btn btn-primary position-relative me-5 mt-2" style="height:30px"><i class="bi bi-envelope-arrow-down"></i>
+            <form action="/contacts-list" method="POST">
+            <button type="submit" class="btn btn-primary position-relative me-5 mt-2" style="height:30px"><i class="bi bi-envelope-arrow-down"></i>
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                 <?php echo $_SESSION['co_pending'] ?>
               </span>

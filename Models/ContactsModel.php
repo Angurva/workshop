@@ -32,7 +32,23 @@ class ContactsModel extends AbstractModel
         return $nbPending[0];
 
     }
+    public static function getPending():array
+    {
+        $req = parent::getConnection()->prepare("SELECT * FROM contacts WHERE co_status = 'pending'");
+        $req->execute();
+        $result = $req->fetchAll();
+        $req->closeCursor();
+        return $result;
+    }
 
+    public static function validate(int|string $co_id):void
+    {
+        $req = parent::getConnection()->prepare("UPDATE contacts SET co_status = :co_status WHERE co_id = :co_id");
+        $req->bindValue(':co_id', $co_id);
+        $req->bindValue(':co_status', 'enabled');
+        $req->execute();
+        $req->closeCursor();
+    }
     
 
 

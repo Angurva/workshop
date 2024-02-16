@@ -18,7 +18,7 @@ class HomeController{
     {
         session_start();
         $services = HomeModel::getAllServices();
-        $opinions = OpinionsModel::getOpinions();
+        $opinions = OpinionsModel::getAccept();
         $schedulers = SchedulersModel::getScheduler();
         ob_start();        
         require(dirname(__DIR__).DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'pages'.DIRECTORY_SEPARATOR.'home.php');

@@ -48,6 +48,14 @@
             "ContactController",
             "contactForm"
         ],
+        "/contacts-list":[
+            "ContactController",
+            "index"
+        ],
+        "/contacts-validate":[
+            "ContactController",
+            "validate"
+        ],
         "/management":[
             "ManagementController",
             "index"

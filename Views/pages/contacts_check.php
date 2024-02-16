@@ -4,11 +4,14 @@
             <thead>
                 <tr>
                 <th scope="col">#</th>
-                <th scope="col">Surnom</th>
-                <th scope="col">Note</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Nom</th>
+                <th scope="col">email</th>
+                <th scope="col">Téléphone</th>
+                <th scope="col">Sujet</th>
                 <th scope="col">Description</th>
-                <th scope="col" class="">Status</th>
-                <th scope="col" colspan="2">Validation</th>
+                <th scope="col">Status</th>
+                <th scope="col">Validation</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,12 +23,13 @@
                     <th scope="row"> <?php echo $pending['co_id'] ?></th>
                     <td><?php echo $pending['co_firstname'] ?></td>
                     <td><?php echo $pending['co_lastname'] ?></td>
-                    <td><?php echo $pending['co_phone'] ?></td>
                     <td><?php echo $pending['co_email'] ?></td>
-                    <td><?php echo $pending['op_status'] ?></td>
-                    <td><?php echo $pending['op_status'] ?></td>
-                    <td><form action="/opinions/accept" method="POST"><input type="hidden" name="op_id" value=<?php echo $pending['op_id']?> > <button type="submit" class="btn btn-outline-success ms-auto">Accept</button></form></td>
-                    <td><form action="/opinions/reject" method="POST"><input type="hidden" name="op_id" value=<?php echo $pending['op_id']?> > <button type="submit" class="btn btn-outline-danger me-auto">Reject</button></form></td>
+                    <td><?php echo $pending['co_phone'] ?></td>
+                    <td><?php echo $pending['co_subject'] ?></td>
+                    <td><?php echo $pending['co_description'] ?></td>
+                    <td><?php echo $pending['co_status'] ?></td>
+                    <td><form action="/contacts-validate" method="POST"><input type="hidden" name="co_id" value=<?php echo $pending['co_id']?> > <button type="submit" class="btn btn-outline-success ms-auto">Validé</button></form></td>
+
                 </tr>
                 <?php endforeach ?>
             </tbody>
