@@ -65,4 +65,10 @@ class OpinionsModel extends AbstractModel
         return $result;
     }
 
+    public static function getDays($op_id):int
+    {
+        $req = self::getConnection()->prepare("SELECT TO_DAYS(op_createAt) FROM opinions WHERE op_id = :op_id");
+        $req2 = self::getConnection()->prepare("SELECT TO_DAYS(NOW))");
+        
+    }
 }

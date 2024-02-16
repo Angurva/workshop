@@ -53,6 +53,24 @@ table tr td, table tr th{
     font-size: 1.25rem;
 }
 
-.card{
-    width:24rem;
+.card-users{
+    width: 24rem;
+}
+.card-announces{
+    width: 24rem;
+}
+
+.card-opinions{
+    width: 14rem;
+    height: 12rem;
+}
+
+.card-opinions-lg{
+    width: 38rem;
+    height: 12rem;
+}
+
+.opt_equip{
+    background-color: #E3E6E0;
+    color: #252930;
 }

@@ -43,4 +43,26 @@ class AnnouncesController
         require(dirname(__DIR__).DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'layout.php');
     }
 
+    public function details():void
+    {
+        session_start();
+        if (isset($_POST['ve_id']))
+        {
+            $ve_id=$_POST['ve_id'];
+            $announce = AnnouncesModel::getOneAnnounce($ve_id);
+            $images = AnnouncesModel::getImages($ve_id);
+            $equipments = AnnouncesModel::getEquipmentsAnnounce($ve_id);
+            $schedulers = SchedulersModel::getScheduler();
+            ob_start();   
+            require(dirname(__DIR__).DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'pages'.DIRECTORY_SEPARATOR.'announcedetails.php');
+            $pageContent = ob_get_clean();
+            require(dirname(__DIR__).DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'layout.php');
+        }
+        else{
+            echo 'error';
+        }
+        
+    }
+
+
 }

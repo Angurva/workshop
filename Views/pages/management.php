@@ -19,7 +19,7 @@ $pageTitle = 'management';
             <?php
                 foreach($employees as $employee):
             ?>
-            <div class="card h-100 col-sm-12 col-lg-3 p-0 mx-1 mb-2">
+            <div class="card h-100 col-sm-12 col-lg-3 p-0 mx-1 mb-2 card-users">
                 <div class="card-body fs-5">
                     <div class="card-text">Id: <input type="hidden" name="<?php echo $employee['em_id'] ?> " class="border-0" readonly><?php echo $employee['em_id'] ?> </div>
                     <div class="card-title">Nom: <?php echo $employee['em_firstname'] ?></div>

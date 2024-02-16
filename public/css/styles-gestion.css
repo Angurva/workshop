@@ -53,6 +53,13 @@ table tr td, table tr th{
     font-size: 1.25rem;
 }
 
-.card{
-    width:20rem;
+.card-users{
+    width:24rem;
+}
+.card-announces{
+    width: 24rem;
+}
+
+.card-opinions{
+    width:16rem;
 }

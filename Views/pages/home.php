@@ -1,9 +1,5 @@
 <?php
 $pageTitle = 'HomePage';
-
-//require_once('..'.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'_head.php');
-
-//require_once('..'.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'_header.php');
 ?>
 <main class="container-fluid p-0 m-0">
     <section class="row p-0 m-0">
@@ -15,10 +11,10 @@ $pageTitle = 'HomePage';
                   if(isset($_SESSION['id']) && $_SESSION['role']== 1)
                   {
                 ?>
-                  <button type="button" class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#modal_mod_ent" id="btn_modal_ent">
-                    Modifier
-                  </button>
-                  <?php
+                <button type="button" class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#modal_mod_ent" id="btn_modal_ent">
+                  Modifier
+                </button>
+                <?php
                 }
                 ?>
             </div>
@@ -53,47 +49,53 @@ $pageTitle = 'HomePage';
                 </div>
             </div>
         </article>
+
         <aside class="col-sm-12 row justify-content-center">
         <div class="col-sm-12 col-lg-10 rounded shadow p-0 mt-4 opinions">
+
           <h5 class="text-center m-3"> Temoignages de nos clients </h5>
+
           <div class="row justify-content-around mx-0">
+    
             <?php foreach($opinions as $opinion): ?>
-            <div class="col-2 p-0">
-              <div> <?= $opinion['op_surname'] ?></div>
-              <div><span>
-               <?php for ($i=0;$i<$opinion['op_note'];$i++)
-               {
-                  echo '⭐';
-               } ?>
-               </span>
-               </div>
-              <div><?= $opinion['op_comments'] ?></div>
+            <div class="col-2 p-0 mb-3">
+              <div class="card card-opinions">
+
+                <div class="card-header d-inline">
+                  <div> <?= $opinion['op_surname'] ?></div>
+                  <div class="card-text"><span>
+                    <?php for ($i=0;$i<$opinion['op_note'];$i++)
+                    {
+                        echo '⭐';
+                    } ?>
+                    </span>
+                  </div>
+                </div><!--card-header-->
+
+                <div class="card-body">
+                  
+
+                  <div class="card-text">
+                    <div><?= $opinion['op_comments'] ?></div>
+                  </div><!--card-text-->
+
+                </div><!--card-body-->
+
+                <div class="card-footer">
+                  <div> <?= $opinion['op_createAt'] ?></div>
+                </div><!--card-footer-->
+
+              </div><!--card-->
+              
             </div>
             <?php endforeach ?>
-            <!--
-            <div class="col-2">
-              <div>Cunegonde <span>⭐⭐⭐⭐⭐⭐⭐</span></div>
-              <div> Note:3/5 </div>
-              <div>Commentaire : Natus quam reiciendis alias atque iure nihil</div>
-            </div>
-            <div class="col-2">
-              <div>Bernadette <span>⭐⭐⭐⭐⭐</span></div>
-              <div> Note:5/5 </div>
-              <div>Commentaire :Vero quas minima esse non?</div>
-            </div>
-            <div class="col-2">
-              <div>Martine <span>⭐⭐</span></div>
-              <div> Note:2/5 </div>
-              <div>Commentaire :Vero quas minima?</div>
-            </div>
-            <div class="col-2">
-              <div>Pierrette <span>⭐⭐⭐⭐</span></div>
-              <div> Note:4/5 </div>
-              <div>Commentaire :Vgénial Natus quam reiciendis?</div>
-            </div>
-            -->
+           
            
           </div>
+          <div class= "row justify-content-center">
+            <button type="button" class="btn btn-outline-light col-sm-12 col-lg-1 m-3" data-bs-toggle="modal" data-bs-target="#modal_opinionslist" id="btn_modal_opinions">Voir plus </button>
+          </div>
+          
         </div>
       </aside>
     </section>
@@ -101,9 +103,11 @@ $pageTitle = 'HomePage';
 
 
 <?php
-  if(isset($_SESSION['id']) && $_SESSION['role']== 1)
+  if(isset($_SESSION['id']) && $_SESSION['role'] == 1)
   {
 ?>
+
+<!--Modal Services "Entretien" editable-->
 <div class="modal fade" id="modal_mod_ent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
@@ -125,6 +129,7 @@ $pageTitle = 'HomePage';
   </div>
 </div>
 
+<!--Modal Services Mecanique editable-->
 <div class="modal fade" id="modal_mod_mec" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
@@ -146,22 +151,25 @@ $pageTitle = 'HomePage';
   </div>
 </div>
 
+<!--Modal Services Carroserie editable-->
 <div class="modal fade" id="modal_mod_car" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
+
+    
       <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLabel">Texte à modifier</h4>
+        <h4 class="modal-title" id="exampleModalLabel">Tous les avis</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
         <div class="modal-body">
-          <form action="/services/update" method="POST">
+          
             <input type="text" name="title" readonly value=<?php echo $services[2]['se_title']; ?> class="form-control" >
             <textarea name="description" id="" cols="100" rows="10" class="form-control my-3"><?php echo $services[2]['se_description']; ?></textarea>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
-          </form>
+      
+          
         </div>
     </div>
   </div>
@@ -169,6 +177,55 @@ $pageTitle = 'HomePage';
 <?php
   }
 ?>
-<?php
-//require_once('..'.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'_footer.php');
-?>
+
+<!--Modal Opinions List-->
+<div class="modal fade" id="modal_opinionslist" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLabel">Tous les avis</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div><!-- modal header-->
+
+      <div class="modal-body">
+        <?php foreach($opinions as $opinion): ?>
+          <div class="col-2 p-0 mb-3">
+              <div class="card card-opinions-lg">
+
+                <div class="card-header d-inline">
+                  <div> <?= $opinion['op_surname'] ?></div>
+                  <div class="card-text"><span>
+                    <?php for ($i=0;$i<$opinion['op_note'];$i++)
+                    {
+                        echo '⭐';
+                    } ?>
+                    </span>
+                  </div>
+                </div><!--card-header-->
+
+                <div class="card-body">
+                  
+
+                  <div class="card-text">
+                    <div><?= $opinion['op_comments'] ?></div>
+                  </div><!--card-text-->
+
+                </div><!--card-body-->
+
+                <div class="card-footer">
+                  <div> <?= $opinion['op_createAt'] ?></div>
+                </div><!--card-footer-->
+
+              </div><!--card-->
+              
+            </div>
+        <?php endforeach ?> 
+      </div><!--model-body-->
+            
+       
+    </div><!-- modal-content-->
+  </div><!-- modal-dialog -->
+</div>

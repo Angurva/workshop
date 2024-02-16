@@ -16,7 +16,7 @@
   
 </head>
 
-<body onload="datetimeShow()">
+<body onload="datetimeShow()" class="d-flex flex-column min-vh-100 ">
   <header class="container-fluid p-0 m-0 sticky-top">
     <nav class="navbar navbar-expand-lg navbar-color navbar-dark"><!--navbar-dark bg-dark-->
       <a href="#" class="navbar-brand ms-3 text-color-a">GarageParrot</a>
@@ -89,7 +89,7 @@
     <?php echo $pageContent ?? "" ?>
    
 
-  <footer class="container-fluid">
+  <footer class="container-fluid mt-auto">
     <div class="row mt-4 footer-color-bg">
       <div class="col-sm-12 col-lg-4 offset-1">
         <h3 class="offset-4 mt-3">Horaires</h3>
@@ -112,26 +112,6 @@
               <td class="px-4"><?php echo $scheduler['sc_ap_start'] ?> - <?php echo $scheduler['sc_ap_end'] ?></td> 
             </tr>
             <?php endforeach ?>
-           <!-- <tr>
-              <th class="px-4" scope="row">Mardi</th>
-              <td class="px-4">09:00 - 12:00</td>
-              <td class="px-4">14:00 - 18:00</td>
-            </tr>
-            <tr>
-              <th class="px-4" scope="row">Mercredi</th>
-              <td class="px-4">09:00 - 12:00</td>
-              <td class="px-4">14:00 - 18:00</td>
-            </tr>
-            <tr>
-              <th class="px-4" scope="row">Jeudi</th>
-              <td class="px-4">09:00 - 12:00</td>
-              <td class="px-4">14:00 - 18:00</td>
-            </tr>
-            <tr>
-              <th class="px-4" scope="row">Vendredi</th>
-              <td class="px-4">09:00 - 12:00</td>
-              <td class="px-4">14:00 - 18:00</td>
-            </tr>-->
           </tbody>
         </table>
         <?php
@@ -180,25 +160,34 @@
         </button>
       </div>
         <div class="modal-body">
-          
+          <table class="table table-light">
+            <thead>
+              <tr>
+                <th></th>
+                <th class="px-4 text-center" scope="col">Matin début</th>
+                <th class="px-4 text-center" scope="col">Matin fin</th>
+                <th class="px-4 text-center" scope="col">Après-midi début</th>
+                <th class="px-4 text-center" scope="col">Après-midi fin</th> 
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
             <?php foreach($schedulers as $scheduler): ?>
-            <form action="/scheduler/change" method="POST">
-            <div>
-            <label for="" name=""><?php echo $scheduler['sc_day'] ?></label>
-            <input type="hidden" name="sc_day" value="<?php echo $scheduler['sc_day']?>">
-            <input type="time" name="sc_am_start" value="<?php echo $scheduler['sc_am_start'] ?>">  
-            <input type="time" name="sc_am_end" value="<?php echo $scheduler['sc_am_end'] ?>" >
-            <input type="time" name="sc_ap_start" value="<?php echo $scheduler['sc_ap_start'] ?>"> 
-            <input type="time" name="sc_ap_end" value="<?php echo $scheduler['sc_ap_end'] ?>" >
-
-              <button type="submit" class="btn btn-primary">modify</button>
-            </div>
-            </form>
-            
-            <?php endforeach ?>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-           
-       
+              <form action="/scheduler/change" method="POST">
+              <tr>
+                <th scope="row"><?php echo $scheduler['sc_day'] ?></th>
+                <td class="px-4 text-center"><input type="time" name="sc_am_start" value="<?php echo $scheduler['sc_am_start'] ?>"></td>
+                <td class="px-4 text-center"><input type="time" name="sc_am_end" value="<?php echo $scheduler['sc_am_end'] ?>" ></td>
+                <td class="px-4 text-center"><input type="time" name="sc_ap_start" value="<?php echo $scheduler['sc_ap_start'] ?>"> </td>
+                <td class="px-4 text-center"><input type="time" name="sc_ap_end" value="<?php echo $scheduler['sc_ap_end'] ?>" ></td>
+                <td class="px-4 text-center"><button type="submit" class="btn btn-primary">modify</button></td>
+              </tr>
+              <input type="hidden" name="sc_day" value="<?php echo $scheduler['sc_day']?>">
+              </form>
+              <?php endforeach ?>
+            </tbody>
+          </table>   
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> 
         </div>
     </div>
   </div>
@@ -231,7 +220,8 @@ $("#btn_modal").on('click',function(){
  
  $('#modal_mod_car').modal('show');
 });
-  
+
+//const carousel = new bootstrap.Carousel('#carouselExampleIndicators')
   </script>
 </body>
 </html>
@@ -239,7 +229,7 @@ $("#btn_modal").on('click',function(){
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLabel">Texte à modifier</h4>
+        <h4 class="modal-title" id="exampleModalLabel">Formulaire de contact</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -309,3 +299,5 @@ $("#btn_modal").on('click',function(){
     </div>
   </div>
 </div>
+
+

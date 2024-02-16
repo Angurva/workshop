@@ -37,5 +37,4 @@ abstract class AbstractModel
         return date(('Y-m-d h:i:s'));
     }
 
-    
 }

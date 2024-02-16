@@ -12,11 +12,15 @@
             "AnnouncesController",
             "add"
         ],
-        "/announces/update":[
+        "/announce-details":[
+            "AnnouncesController",
+            "details"
+        ],
+        "/announce/update":[
             "AnnouncesController",
             "update"
         ],
-        "/announces/delete":[
+        "/announce/delete":[
             "AnnouncesController",
             "delete"
         ],

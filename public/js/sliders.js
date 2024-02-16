@@ -29,7 +29,7 @@ $(document).ready(function(){
                 response.forEach(function(item,index,array)
                 {
                     let cardVe = "card_ve_"+index;
-                    $('#test').append('<article class="card col-lg-4 m-3 p-0" id='+cardVe+'></article>');
+                    $('#test').append('<article class="card card-announces col-lg-4 m-3 p-0" id='+cardVe+'></article>');
                     $('#'+cardVe).append('<img src="../'+ item['ve_photo']+'" class="card-img-top img-fluid" alt="" >');
                     $('#'+cardVe).append('<div class="card-body"></div>');
                     $('#'+cardVe+'>.card-body').append('<h5 class="card-title">'+ item['br_name']+ ' ' +item['mo_name'] +'</h5>');

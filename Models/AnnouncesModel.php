@@ -11,7 +11,7 @@ class AnnouncesModel extends AbstractModel
 
     public static function getAnnounces():array
     {
-        $req = parent::getConnection()->prepare("SELECT v.ve_designation,v.ve_price,v.ve_km,v.ve_year,v.ve_color,v.ve_doors,e.en_name,m.mo_name, b.br_name,v.ve_photo
+        $req = parent::getConnection()->prepare("SELECT v.ve_id,v.ve_designation,v.ve_price,v.ve_km,v.ve_year,v.ve_color,v.ve_doors,e.en_name,m.mo_name, b.br_name,v.ve_photo
         FROM vehicles AS v
         LEFT JOIN energies AS e ON v.en_id = e.en_id
         LEFT JOIN models AS m ON v.mo_id = m.mo_id
@@ -19,6 +19,18 @@ class AnnouncesModel extends AbstractModel
 
         $req->execute();
         return $req->fetchAll();
+    }
+    public static function getOneAnnounce(string|int $ve_id):array
+    {
+        $req = parent::getConnection()->prepare("SELECT v.ve_designation,v.ve_price,v.ve_km,v.ve_year,v.ve_color,v.ve_doors,e.en_name,m.mo_name, b.br_name,v.ve_photo
+        FROM vehicles AS v
+        LEFT JOIN energies AS e ON v.en_id = e.en_id
+        LEFT JOIN models AS m ON v.mo_id = m.mo_id
+        LEFT JOIN brands AS b ON m.br_id = b.br_id 
+        WHERE v.ve_id = :ve_id");
+        $req->bindParam(':ve_id',$ve_id);
+        $req->execute();
+        return $req->fetch(\PDO::FETCH_ASSOC);
     }
 
     public static function getSearch(string|int $min,string|int $max):array
@@ -82,6 +94,15 @@ class AnnouncesModel extends AbstractModel
         return $result;
         
     }
+    public static function getImages(string|int $ve_id):array
+    {
+        $req = parent::getConnection()->prepare("SELECT * FROM images WHERE ve_id = :ve_id");
+        $req->bindParam(':ve_id',$ve_id);
+        $req->execute();
+        $result = $req->fetchAll(\PDO::FETCH_ASSOC);
+        $req->closeCursor();
+        return $result;      
+    }
     public static function getModelsBrand():array
     {
         $req = parent::getConnection()->prepare("SELECT b.br_name, m.mo_name
@@ -112,5 +133,19 @@ class AnnouncesModel extends AbstractModel
         return $result;
         
     }
+
+    public static function getEquipmentsAnnounce(string|int $ve_id):array
+    {
+        $req = parent::getConnection()->prepare("SELECT eq.eq_name FROM vehicles AS v
+        LEFT JOIN vehicles_equipments AS veq ON v.ve_id = veq.ve_id
+        LEFT JOIN equipments AS eq ON veq.eq_id=eq.eq_id
+        WHERE v.ve_id = :ve_id;");
+        $req->bindParam(':ve_id',$ve_id);
+        $req->execute();
+        $result=$req->fetchAll();
+        $req->closeCursor();
+        return $result;
+    }
+
 
 }
