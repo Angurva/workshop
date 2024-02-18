@@ -25,7 +25,7 @@ $pageTitle = 'management';
                     <div class="card-title">Nom: <?php echo $employee['em_firstname'] ?></div>
                     <div class="card-subtitle">Prénom: <?php echo $employee['em_lastname'] ?> </div>
                     <div class="card-text">Email: <?php echo $employee['em_email'] ?></div>
-                    <div class="card-text">Password : <?php echo $employee['em_password'] ?></div>
+                    <div class="card-text">Password :******</div>
                     <div class="card-text">Role: <?php echo $employee['ro_id'] ?></div>
                     <div class="card-text">créé le: <?php echo $employee['em_createAt'] ?></div>
                 </div>

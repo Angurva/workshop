@@ -1,14 +1,8 @@
 
 INSERT INTO roles(ro_name) 
 VALUES 
-   ('superadmin'),
-   ('administrator'),
-   ('user');
-
-INSERT INTO employees (em_firstname, em_lastname, em_email,em_password,ro_id)
-VALUES
-   ('admin','admin','admin@localhost','admin',1),
-   ('Vincent','Parrot','vparrot@test.fr','test',2);
+   ('moderators'),
+   ('users');
 
 INSERT INTO brands(br_name)
 VALUES
@@ -60,30 +54,30 @@ VALUES
 
 INSERT INTO schedules(sc_day,sc_am_start,sc_am_end,sc_ap_start,sc_ap_end,ro_id)
 VALUES
-   ('Lundi','09:00','12:00','14:00','18:00',2),
-   ('Mardi','09:00','12:00','14:00','18:00',2),
-   ('Mercredi','09:00','12:00','14:00','18:00',2),
-   ('Jeudi','09:00','12:00','14:00','18:00',2),
-   ('Vendredi','09:00','12:00','14:00','18:00',2),
-   ('Samedi','00:00','00:00','00:00','00:00',2),
-   ('Dimanche','00:00','00:00','00:00','00:00',2);
+   ('Lundi','09:00','12:00','14:00','18:00',1),
+   ('Mardi','09:00','12:00','14:00','18:00',1),
+   ('Mercredi','09:00','12:00','14:00','18:00',1),
+   ('Jeudi','09:00','12:00','14:00','18:00',1),
+   ('Vendredi','09:00','12:00','14:00','18:00',1),
+   ('Samedi','00:00','00:00','00:00','00:00',1),
+   ('Dimanche','00:00','00:00','00:00','00:00',1);
 
 
 INSERT INTO opinions(op_surname,op_note, op_comments,ro_id)
 VALUES
-    ('toto69',5, 'super génial de la mort qui tue',3),
-    ('Cruella58',2, 'super bof bof',3),
-    ('Mystic36',4, 'appréciable',3),
-    ('Bijbij',3, 'jadore',3),
-    ('Loto65',5, 'trop sympa',3),
-    ('Skywalker',4, 'merci',3),
-    ('Mishi',5, 'je recommande',3);
+    ('toto69',5, 'super génial de la mort qui tue',2),
+    ('Cruella58',2, 'super bof bof',2),
+    ('Mystic36',4, 'appréciable',2),
+    ('Bijbij',3, 'jadore',2),
+    ('Loto65',5, 'trop sympa',2),
+    ('Skywalker',4, 'merci',2),
+    ('Mishi',5, 'je recommande',2);
 
 INSERT INTO services(se_title,se_description,ro_id)
 VALUES
-    ('Entretien', '',2),
-    ('Mécanique', '',2),
-    ('Carrosserie', '',2);
+    ('Entretien', '',1),
+    ('Mécanique', '',1),
+    ('Carrosserie', '',1);
 
 INSERT INTO contacts(co_firstname,co_lastname,co_email,co_phone,co_subject,co_description, ro_id)
 VALUES
@@ -94,13 +88,13 @@ VALUES
     ('Martine','Brouille','mbrouille@exemple.fr','0612345678','Vente','vente véhicule',3),
     ('Mirelle','Troupe','mtroupe@exemple.fr','0612345678','Achat','demande de renseignement sur une voiture',3);
 
-INSERT INTO vehicles(ve_designation,ve_price,ve_km,ve_year,ve_color,ve_doors,en_id, mo_id,em_id)
+INSERT INTO vehicles(ve_designation,ve_price,ve_km,ve_year,ve_color,ve_doors,ve_photo,en_id, mo_id,ro_id)
 VALUES
-    ('Exept',25459,25432,2023,'Red',5, 4,2,1),
-    ('Rare',23612,12542,2023,'Yellow',5,5,4,1),
-    ('Occaz',12345,98657,2022,'Blue',3, 3,3,1),
-    ('Folie',8999,175236,2018,'Orange',5, 2,6,1),
-    ('Bijoux',3000,275123,2012,'White',3, 1,7,1);
+    ('Exept',25459,25432,2023,'blue',5,'assets/peugeot-30082.jpg', 4,2,3),
+    ('Rare',23612,12542,2023,'Orange',5,'assets/r5-electric-.jpg',5,4,3),
+    ('Occaz',12345,98657,2022,'Yellow',3,'assets/renault_clio.jpg',3,3,3),
+    ('Folie',8999,175236,2018,'blue',5,'assets/toyota-yaris2.jpg',2,6,3),
+    ('Bijoux',3000,275123,2012,'White',3,'assets/citroen_c4.jpg',1,7,3);
 
 INSERT INTO vehicles_equipments(ve_id, eq_id)
 VALUES
@@ -120,9 +114,3 @@ VALUES
     (4,4),
     (4,6),
     (5,8),
-    (5,2),
-    (5,12);
-
-
-
-

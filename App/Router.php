@@ -84,7 +84,10 @@ class Router{
     }
     
 
-/*
+/**
+ * auanother method to  add routes in progress
+ */
+ /*
     public function addRoute(string $pathUrl, array|string $controllerPath):void
     {
         if (is_array( $controllerPath))

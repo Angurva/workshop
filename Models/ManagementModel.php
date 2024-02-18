@@ -35,8 +35,16 @@ class ManagementModel extends AbstractModel
             foreach($data as $key=>$value)
             { 
                 $req = parent::getConnection()->prepare("UPDATE employees SET $key = :em_value WHERE em_id = :em_id");
-                $req->bindValue(':em_value',$value);
-                $req->bindValue(':em_id',$em_id);
+                if ($key === 'em_password')
+                {
+                    $req->bindValue(':em_value',\password_hash($value, PASSWORD_BCRYPT));
+                    $req->bindValue(':em_id',$em_id);
+
+                }else{
+                    $req->bindValue(':em_value',$value);
+                    $req->bindValue(':em_id',$em_id);
+                }
+               
                 $req->execute();
             }
             $req->closeCursor();
@@ -54,6 +62,8 @@ class ManagementModel extends AbstractModel
         $req->closeCursor();
 
     }
+
+    
     public static function getOneEmployee(string|int $em_id):array
     {
         $req=parent::getConnection()->prepare("SELECT * FROM employees WHERE em_id = :em_id");

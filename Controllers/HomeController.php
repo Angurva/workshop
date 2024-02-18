@@ -5,6 +5,7 @@ namespace Controllers;
 use Models\HomeModel;
 use Models\OpinionsModel;
 use Models\SchedulersModel;
+use Exceptions\POSTNotFoundException;
 
 require_once('../App/functions.php');
 
@@ -13,12 +14,15 @@ class HomeController{
     /**
      * Method view homepage
      * display services and Opinions
+     * @param void
+     * @return void
      */
-    public function index()
+    public function index(): void
     {
         session_start();
         $services = HomeModel::getAllServices();
         $opinions = OpinionsModel::getAccept();
+        $opinionsLimit = OpinionsModel::getLimitOp();   
         $schedulers = SchedulersModel::getScheduler();
         ob_start();        
         require(dirname(__DIR__).DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'pages'.DIRECTORY_SEPARATOR.'home.php');
@@ -28,6 +32,11 @@ class HomeController{
 
     }
 
+    /** 
+     * Method to update services with authenticated administrator
+     * @param void
+     * @return void
+    */
     public function update(): void
     {
         if(isset($_POST['title']) &&  $_POST['description'])
@@ -38,7 +47,7 @@ class HomeController{
             header('Location: /');
         }
         else{
-            die();
+            throw new POSTNotFoundException('Variable POST has been not found');
         }
        
     }

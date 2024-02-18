@@ -9,13 +9,33 @@ $pageTitle = 'annonces';
     <a href="/announces-add" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tooltip on top">Ajouter une Annonce</a>
 
       <?php } ?>
-    <div class="search ms-5">
-      <label for="sliderPrice" class="form-label">Prix: </label>
-      <span id="range"></span><span> €</span>
-      <div id="sliderPrice" style="width: 25%"></div>
-    </div>
+      <div class="d-flex justify-content-between ">
+        <div class="search ms-5 col-sm-3">
+          <label for="sliderPrice" class="form-label">Prix: </label>
+          <span id="rangePrice"></span><span> €</span>
+          <div id="sliderPrice" ></div>
+          <button type="button" id="button-reset-price" class="btn btn-info m-3">Réinitialiser</button>
+          
+        </div>
 
-    <section class="row justify-content-sm-center justify-content-md-evenly justify-content-lg-center p-2" id="test">
+        <div class="search col-sm-3">
+          <label for="sliderKM" class="form-label">Kilométrage: </label>
+          <span id="rangeKm"></span><span>Km</span>
+          <div id="sliderKM"></div>
+          <button type="button" id="button-reset-km" class="btn btn-info m-3">Réinitialiser</button>
+        </div>
+
+        <div class="search col-sm-3">
+          <label for="sliderYear" class="form-label">Année: </label>
+          <span id="rangeYear"></span><span> </span>
+          <div id="sliderYear"></div>
+          <button type="button" id="button-reset-year" class="btn btn-info m-3">Réinitialiser</button>
+        </div>
+
+      </div>
+    
+
+    <section class="row justify-content-sm-center justify-content-md-evenly justify-content-lg-center p-2" id="announcelist">
     <?php 
       foreach ($announces as $announce):
     ?>

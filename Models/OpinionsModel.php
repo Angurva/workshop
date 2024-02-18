@@ -7,17 +7,20 @@ class OpinionsModel extends AbstractModel
 
     private const OPINIONS = 'opinions';
 
+    
     public static function getOpinions():array
     {
        return self::getAll('opinions');
     }
 
-    public static function createOpinion($surname,$note,$comments):void
+    public static function createOpinion(string $surname,int|string $note,string $comments):void
     {
-        $req = parent::getConnection()->prepare("INSERT INTO " . self::OPINIONS . "(op_surname,op_note,op_comments) VALUES (:surname,:note,:comments)" );
+        $req = parent::getConnection()->prepare("INSERT INTO opinions(op_surname,op_note,op_comments) VALUES (:surname,:note,:comments)" );
         $req->bindParam(':surname', $surname);
         $req->bindParam(':note', $note);
         $req->bindParam(':comments', $comments);
+        $req->execute();
+        $req->closeCursor();
     }
 
     public static function accept(int|string $op_id):void
@@ -58,7 +61,7 @@ class OpinionsModel extends AbstractModel
     }
     public static function getAccept():array
     {
-        $req = parent::getConnection()->prepare("SELECT * FROM opinions WHERE op_status = 'accept'");
+        $req = parent::getConnection()->prepare("SELECT * FROM opinions WHERE op_status = 'accept' ORDER BY op_createAt DESC");
         $req->execute();
         $result = $req->fetchAll();
         $req->closeCursor();
@@ -70,5 +73,14 @@ class OpinionsModel extends AbstractModel
         $req = self::getConnection()->prepare("SELECT TO_DAYS(op_createAt) FROM opinions WHERE op_id = :op_id");
         $req2 = self::getConnection()->prepare("SELECT TO_DAYS(NOW))");
         
+    }
+    
+    public static function getLimitOp():array
+    {
+        $req = parent::getConnection()->prepare("SELECT * FROM opinions  WHERE op_status='accept' ORDER BY op_createAt DESC LIMIT 5;");
+        $req->execute();
+        $result = $req->fetchAll();
+        $req->closeCursor();
+        return $result;
     }
 }

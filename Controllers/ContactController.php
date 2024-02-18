@@ -5,11 +5,18 @@ require_once('../App/functions.php');
 
 use Models\ContactsModel;
 use Models\SchedulersModel;
+use Exceptions\POSTNotFoundException;
 
 class ContactController
 {
 
-    public function index()
+    /**
+     * Method to display form waiting
+     * method display for users authenticated
+     * @param void
+     * @return void
+     */
+    public function index(): void
     {        
         session_start();
         $co_pending= ContactsModel::getPending();
@@ -20,12 +27,29 @@ class ContactController
         require(dirname(__DIR__).DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'layout.php');
     }
 
+
+    /** 
+     * Method to create a contact form
+     * sanitize $_POST array
+     * @param void
+     * @return void
+    */
     public function contactForm():void
     {
-        ContactsModel::addContact($this->sanitizeForm($_POST));
-        header('Location: /');
-       
+        if (isset($_POST))
+        {
+            ContactsModel::addContact($this->sanitizeForm($_POST));
+            header('Location: /');
+        }
+        else{
+            throw new POSTNotFoundException('Variable POST has been not found');
+        }       
     }
+    /** 
+     * method to sanitize array
+     * @param array
+     * @return array
+     */
 
     public function sanitizeForm(array $form):array
     {
@@ -36,6 +60,9 @@ class ContactController
         return $formSanitize;
     }
 
+    /** 
+     * method to enable a form
+    */
     public function validate():void
     {
         if(isset($_POST['co_id']))
@@ -43,7 +70,7 @@ class ContactController
             ContactsModel::validate($_POST['co_id']);
             header('Location: /contacts-list');
         }else{
-            throw new RouteNotFoundException("error don't come on if");
+            throw new POSTNotFoundException('Variable POST has been not found');
         }
         
     }

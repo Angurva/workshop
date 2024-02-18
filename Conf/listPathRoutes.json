@@ -12,6 +12,14 @@
             "AnnouncesController",
             "add"
         ],
+        "/announces/create":[
+            "AnnouncesController",
+            "createAnnounce"
+        ],
+        "/announces/add-model":[
+            "AnnouncesController",
+            "addModel"
+        ],
         "/announce-details":[
             "AnnouncesController",
             "details"
@@ -87,6 +95,10 @@
         "/opinions":[
             "OpinionsController",
             "index"
+        ],
+        "/opinions/add":[
+            "OpinionsController",
+            "add"
         ],
         "/opinions/accept":[
             "OpinionsController",

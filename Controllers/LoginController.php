@@ -11,13 +11,22 @@ require_once('../App/functions.php');
 class LoginController
 {
 
-    public function index()
+    /** 
+     * Method to display login page
+     * @param void
+     * @return void
+    */
+    public function index(): void
     {
-
         require(dirname(__DIR__).DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'pages'.DIRECTORY_SEPARATOR.'connection.php');
     }
 
-    public function login()
+    /** 
+     * method login check if user exist create a session with id, firstname, lastname and role, and redirect to homepage
+     * @param void
+     * @return void
+    */
+    public function login(): void
     {
         if (isset($_POST['email']) && isset($_POST['password']))
         {
@@ -48,7 +57,13 @@ class LoginController
 
 
     }
-    public function logout()
+
+    /**
+     * method to logout destroy session and all variables SESSION
+     * @param void
+     * @return void 
+     */
+    public function logout(): void
     {
         session_start();
         session_unset();

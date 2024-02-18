@@ -31,10 +31,10 @@ CREATE TABLE employees(
    em_lastname VARCHAR(100) NOT NULL,
    em_email VARCHAR(250) NOT NULL UNIQUE,
    em_password VARCHAR(250) NOT NULL,
-   em_createAt VARCHAR(50) NOT NULL DEFAULT (curdate()),
-   em_updateAt DATETIME NOT NULL DEFAULT (curdate()),
+   em_createAt VARCHAR(50) NOT NULL DEFAULT (NOW()),
+   em_updateAt DATETIME NOT NULL DEFAULT (NOW()),
    em_status VARCHAR(50) NOT NULL DEFAULT 'active',
-   ro_id INT UNSIGNED NOT NULL,
+   ro_id INT UNSIGNED NOT NULL DEFAULT 3,
    FOREIGN KEY(ro_id) REFERENCES roles(ro_id)
 );
 
@@ -44,9 +44,9 @@ CREATE TABLE opinions(
    op_note SMALLINT NOT NULL,
    op_comments TEXT,
    op_status VARCHAR(50) NOT NULL DEFAULT 'pending',
-   op_createAt DATETIME NOT NULL DEFAULT (curdate()),
-   op_updateAt DATETIME NOT NULL DEFAULT (curdate()),
-   ro_id INT UNSIGNED NOT NULL,
+   op_createAt DATETIME NOT NULL DEFAULT (NOW()),
+   op_updateAt DATETIME NOT NULL DEFAULT (NOW()),
+   ro_id INT UNSIGNED NOT NULL DEFAULT 2,
    FOREIGN KEY(ro_id) REFERENCES roles(ro_id)
 );
 
@@ -58,19 +58,19 @@ CREATE TABLE vehicles(
    ve_year YEAR NOT NULL,
    ve_color VARCHAR(50) NOT NULL,
    ve_doors SMALLINT NOT NULL,
-   ve_createAt DATETIME NOT NULL DEFAULT (curdate()),
+   ve_createAt DATETIME NOT NULL DEFAULT (NOW()),
    en_id INT UNSIGNED NOT NULL,
-   mo_id INT UNSIGNED NOT NULL,
-   em_id INT UNSIGNED NOT NULL,
+   mo_id INT UNSIGNED,
+   ro_id INT UNSIGNED NOT NULL DEFAULT 3,
    FOREIGN KEY(en_id) REFERENCES energies(en_id),
    FOREIGN KEY(mo_id) REFERENCES models(mo_id),
-   FOREIGN KEY(em_id) REFERENCES employees(em_id)
+   FOREIGN KEY(ro_id) REFERENCES roles(ro_id)
 );
 
 CREATE TABLE images(
    im_id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
    im_name VARCHAR(250) NOT NULL,
-   im_file MEDIUMBLOB NOT NULL,
+   im_path VARCHAR(250) NOT NULL,
    ve_id INT UNSIGNED NOT NULL,
    FOREIGN KEY(ve_id) REFERENCES vehicles(ve_id)
 );
@@ -82,8 +82,8 @@ CREATE TABLE schedules(
    sc_am_end TIME,
    sc_ap_start TIME,
    sc_ap_end TIME,
-   sc_updateAt DATETIME NOT NULL DEFAULT (curdate()),
-   ro_id INT UNSIGNED NOT NULL,
+   sc_updateAt DATETIME NOT NULL DEFAULT (NOW()),
+   ro_id INT UNSIGNED NOT NULL DEFAULT 1,
    FOREIGN KEY(ro_id) REFERENCES roles(ro_id)
 );
 
@@ -91,8 +91,8 @@ CREATE TABLE services(
    se_id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
    se_title VARCHAR(50) NOT NULL,
    se_description TEXT NOT NULL,
-   se_updateAt DATETIME NOT NULL DEFAULT (curdate()),
-   ro_id INT UNSIGNED NOT NULL,
+   se_updateAt DATETIME NOT NULL DEFAULT (NOW()),
+   ro_id INT UNSIGNED NOT NULL DEFAULT 1,
    FOREIGN KEY(ro_id) REFERENCES roles(ro_id)
 );
 
@@ -105,9 +105,9 @@ CREATE TABLE contacts(
    co_subject VARCHAR(250) NOT NULL,
    co_description TEXT NOT NULL,
    co_status VARCHAR(50) NOT NULL DEFAULT 'pending',
-   co_createAt DATETIME NOT NULL DEFAULT (curdate()),
-   co_updateAt DATETIME NOT NULL DEFAULT (curdate()),
-   ro_id INT UNSIGNED NOT NULL,
+   co_createAt DATETIME NOT NULL DEFAULT (NOW()),
+   co_updateAt DATETIME NOT NULL DEFAULT (NOW()),
+   ro_id INT UNSIGNED NOT NULL DEFAULT 3,
    FOREIGN KEY(ro_id) REFERENCES roles(ro_id)
 );
 

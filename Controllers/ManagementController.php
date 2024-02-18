@@ -10,7 +10,13 @@ require_once('../App/functions.php');
 class ManagementController 
 {
    
-    public function index():void
+    /** 
+     * method to display management page
+     * administrator authenticated necessary
+     * @param void
+     * @return void
+    */
+    public function index(): void
     {
         session_start();
         $employees = ManagementModel::getEmployees();
@@ -22,26 +28,45 @@ class ManagementController
     
     }
 
-    public static function add():void
+    /** 
+     * method to add an user
+     * @param void
+     * @return void
+    */
+    public static function add(): void
     {
-        $em_firstname = \sanitizeString($_POST['em_firstname']);
-        $em_lastname = \sanitizeString($_POST['em_lastname']);
-        $em_email = \sanitizeString($_POST['em_email']);
-        $em_password = \sanitizeString($_POST['em_password']);
-
-        ManagementModel::addEmployee($em_firstname,$em_lastname,$em_email,$em_password);
-        header('Location: /management');
-
+        if(isset($_POST['em_firstname']) && isset($_POST['em_lastname']) && isset($_POST['em_email']) && isset($_POST['em_password']))
+        {
+            $em_firstname = \sanitizeString($_POST['em_firstname']);
+            $em_lastname = \sanitizeString($_POST['em_lastname']);
+            $em_email = \sanitizeString($_POST['em_email']);
+            $em_password = \sanitizeString($_POST['em_password']);
+            ManagementModel::addEmployee($em_firstname,$em_lastname,$em_email,$em_password);
+            header('Location: /management');
+        }
+        else{
+            throw new POSTNotFoundException('Variable POST has been not found');
+        }
     }
 
-    public static function delete():void
+    /** 
+     * method to delete an user
+     * @param void
+     * @return void
+    */
+    public static function delete(): void
     {
 
         ManagementModel::deleteEmployee($_POST['em_id']);
         header('Location: /management');
     }
 
-    public static function updatePage()
+     /** 
+     * method to display page update an user
+     * @param void
+     * @return void
+    */
+    public static function updatePage(): void
     {
         if(isset($_POST['em_id']))
         {
@@ -54,21 +79,35 @@ class ManagementController
             require(dirname(__DIR__).DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'layout.php');
         }else
         {
-            header('Location: /404');
+            throw new POSTNotFoundException('Variable POST has been not found');
         }
         
     }
 
-    public static function update():void
+    /** 
+     * method to update an user
+     * @param void
+     * @return void
+    */
+    public static function update(): void
     {
-        $compare = array_diff_assoc($_POST, ManagementModel::getOneEmployee($_POST['em_id']));
-        //dump($compare);
-        //dump($_POST['em_id']);
-        ManagementModel::updateEmployee($compare,$_POST['em_id']);
-        header('Location: /management');
+        if (isset($_POST['em_id']))
+        {
+            $compare = array_diff_assoc($_POST, ManagementModel::getOneEmployee($_POST['em_id']));
+            ManagementModel::updateEmployee($compare,$_POST['em_id']);
+            header('Location: /management');
+        }
+        else{
+            throw new POSTNotFoundException('Variable POST has been not found');
+        } 
     }
 
-    public static function changePWD():void
+     /** 
+     * method to change an user
+     * @param void
+     * @return void
+    */
+    public static function changePWD(): void
     {
         if(isset($_POST['new_password']))
         {
@@ -78,7 +117,7 @@ class ManagementController
             header("Location: /");
         }
        else{
-        //new throw exceptions();
+        throw new POSTNotFoundException('Variable POST has been not found');
        }
     }
 }
