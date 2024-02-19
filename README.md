@@ -1,4 +1,12 @@
 # Installation and configuration #
+prerequisites:
+
+php 8.1
+Mysql 8.0
+Nginx or Apache (file .htaccess exist on directory public)
+composer
+
+Directory src/ files and script to help
 
 
 ### *extract zip and rename workshop-main to workshop*
