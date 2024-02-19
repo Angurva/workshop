@@ -3,7 +3,7 @@
 
 ### extract zip and rename workshop-main to workshop
 
-$ git clone https://github.com/Angurva/workshop.git
+#### $ git clone https://github.com/Angurva/workshop.git
 
 $ sudo mv workshop-main/ workshop/
 
