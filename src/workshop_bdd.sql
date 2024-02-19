@@ -58,6 +58,7 @@ CREATE TABLE vehicles(
    ve_year YEAR NOT NULL,
    ve_color VARCHAR(50) NOT NULL,
    ve_doors SMALLINT NOT NULL,
+   ve_photo VARCHAR(250),
    ve_createAt DATETIME NOT NULL DEFAULT (NOW()),
    en_id INT UNSIGNED NOT NULL,
    mo_id INT UNSIGNED,

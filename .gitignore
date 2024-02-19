@@ -1,6 +1,3 @@
 # ignore all logs
 *.log
 
-#ignore vendor directory
-
-/vendor/
