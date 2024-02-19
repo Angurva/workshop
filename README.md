@@ -1,19 +1,18 @@
 # Installation and configuration #
 
 
-### extract zip and rename workshop-main to workshop
+### *extract zip and rename workshop-main to workshop*
 
-#### $ git clone https://github.com/Angurva/workshop.git
+$ git clone https://github.com/Angurva/workshop.git
 
-$ sudo mv workshop-main/ workshop/
 
-### copy to /var/www/html
+### *copy to /var/www/html*
 
-$ sudo cp -R workshop /var/www/html/
+$ sudo cp -R workshop /var/www/html/ 
 
 $ cd /var/www/html/workshop
 
-### create initial database with user workshop
+### *create initial database with user workshop*
 
 $ sudo mysql
 password
@@ -26,15 +25,15 @@ mysql>quit;
 
 $ cat src/workshop_bdd.sql | mysql -u workshop -p workshop
 
-### script to create admin user
+### *script to create admin user*
 $ php src/script_admin_user.php
 
-### fill database
+### *fill database*
 $ cat src/datas.sql | mysql -u workshop -p workshop
 
-$ composer install 
+$ composer install
 
-#admin login
+### admin login
  login : admin@localhost
  password : workshop
 
