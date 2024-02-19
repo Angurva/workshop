@@ -26,8 +26,11 @@ $ sudo mysql
 password
 
 mysql> CREATE DATABASE workshop;
+
 mysql> CREATE USER 'workshop'@'localhost' IDENTIFIED BY 'workshop';
+
 mysql> GRANT ALL PRIVILEGES ON workshop.* TO 'workshop'@'localhost';
+
 mysql> FLUSH PRIVILEGES;
 mysql>quit;
 
