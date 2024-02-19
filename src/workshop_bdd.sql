@@ -46,7 +46,7 @@ CREATE TABLE opinions(
    op_status VARCHAR(50) NOT NULL DEFAULT 'pending',
    op_createAt DATETIME NOT NULL DEFAULT (NOW()),
    op_updateAt DATETIME NOT NULL DEFAULT (NOW()),
-   ro_id INT UNSIGNED NOT NULL DEFAULT 2,
+   ro_id INT UNSIGNED NOT NULL DEFAULT 3,
    FOREIGN KEY(ro_id) REFERENCES roles(ro_id)
 );
 

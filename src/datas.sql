@@ -65,19 +65,19 @@ VALUES
 
 INSERT INTO opinions(op_surname,op_note, op_comments,op_status,ro_id)
 VALUES
-    ('toto69',5, 'super génial de la mort qui tue','accept',2),
-    ('Chacha',4, 'super sup','accept',2),
-    ('Koko',4, 'cool','accept',2),
-    ('Mili44',5, 'personnes aimables et accueillante','accept',2),
-    ('Cruella58',2, 'super bof bof','accept',2);
+    ('toto69',5, 'super génial de la mort qui tue','accept',3),
+    ('Chacha',4, 'super sup','accept',3),
+    ('Koko',4, 'cool','accept',3),
+    ('Mili44',5, 'personnes aimables et accueillante','accept',3),
+    ('Cruella58',2, 'super bof bof','accept',3);
 
 INSERT INTO opinions(op_surname,op_note, op_comments,ro_id)
 VALUES
-    ('Mystic36',4, 'appréciable',2),
-    ('Bijbij',3, 'jadore',2),
-    ('Loto65',5, 'trop sympa',2),
-    ('Skywalker',4, 'merci',2),
-    ('Mishi',5, 'je recommande',2);
+    ('Mystic36',4, 'appréciable',3),
+    ('Bijbij',3, 'jadore',3),
+    ('Loto65',5, 'trop sympa',3),
+    ('Skywalker',4, 'merci',3),
+    ('Mishi',5, 'je recommande',3);
 
 INSERT INTO services(se_title,se_description,ro_id)
 VALUES
