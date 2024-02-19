@@ -63,10 +63,16 @@ VALUES
    ('Dimanche','00:00','00:00','00:00','00:00',1);
 
 
+INSERT INTO opinions(op_surname,op_note, op_comments,op_status,ro_id)
+VALUES
+    ('toto69',5, 'super génial de la mort qui tue','accept',2),
+    ('Chacha',4, 'super sup','accept',2),
+    ('Koko',4, 'cool','accept',2),
+    ('Mili44',5, 'personnes aimables et accueillante','accept',2),
+    ('Cruella58',2, 'super bof bof','accept',2);
+
 INSERT INTO opinions(op_surname,op_note, op_comments,ro_id)
 VALUES
-    ('toto69',5, 'super génial de la mort qui tue',2),
-    ('Cruella58',2, 'super bof bof',2),
     ('Mystic36',4, 'appréciable',2),
     ('Bijbij',3, 'jadore',2),
     ('Loto65',5, 'trop sympa',2),
@@ -75,9 +81,9 @@ VALUES
 
 INSERT INTO services(se_title,se_description,ro_id)
 VALUES
-    ('Entretien', '',1),
-    ('Mécanique', '',1),
-    ('Carrosserie', '',1);
+    ('Entretien', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi consectetur commodi aut culpa natus, dolorem atque qui aperiam enim vero, facere doloremque facilis aspernatur a accusamus consequuntur earum. Et, commodi? Vel, repellat ad modi consectetur ipsum voluptatem ipsa, eius cum est quos ex animi, sed excepturi asperiores consequatur maiores hic! Recusandae tempore tenetur nesciunt? Nobis deserunt iure quae reprehenderit quaerat. Asperiores repellendus velit placeat necessitatibus, molestias ad voluptatem aliquam, culpa aperiam est praesentium ratione laudantium explicabo excepturi quaerat corrupti vel minima impedit ipsum. Laborum aperiam nesciunt deleniti temporibus perspiciatis id? Quo optio, dicta esse consequuntur, itaque explicabo unde reiciendis dolore fLorem ipsum dolor sit amet consectetur adipisicing elit. Maiores delectus corporis quaerat at ut aspernatur omnis consectetur, sit alias atque magnam a doloremque commodi numquam quidem facere est animi mollitia? Autem animi ducimus deserunt voluptatibus laborum placeat maxime commodi esse cumque quibusdam accusamus, natus incidunt, doloribus tempora corrupti provident! Placeat in blanditiis omnis et eaque ab maiores iure sapiente deserunt? Minus deleniti ratione pariatur quas minima cupiditate quod nostrum dolore doloribus distinctio beatae reprehenderit voluptatem facere, quis quidem? Voluptatum ipsum accusamus illo nihil laboriosam est esse soluta illum, impedit tenetur?',1),
+    ('Mécanique', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, amet! Laboriosam culpa nesciunt ipsam cupiditate at vel ad tempore unde accusantium vitae. Voluptatibus corrupti iure tempore iusto repellendus sed odio. Consectetur modi asperiores voluptates corrupti placeat in reprehenderit quisquam eos consequatur animi alias obcaecati perferendis, architecto earum! Vitae nulla possimus assumenda, molestias id vero laborum! Pariatur necessitatibus distinctio possimus aut! Nostrum et quos perspiciatis nobis sint vero repellendus porro, fuga maiores incidunt accusantium nemo nulla voluptates voluptatem dignissimos illum eius amet explicabo reprehenderit labore harum. Vero quas minima esse non? mecanique encore mécanique méca ca ',1),
+    ('Carrosserie', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque ullam debitis saepe libero ducimus alias veritatis fugit! Omnis, possimus hic laboriosam, quia delectus eius architecto dolor recusandae error facilis laborum! Sapiente, minus. Ex, consequatur voluptatibus doloremque rem facilis nihil nam earum voluptas sit modi laboriosam corporis explicabo esse adipisci assumenda cum accusantium! Pariatur iure ullam aut voluptas quos ducimus cumque? Sit consequatur dolorem dolorum id architecto perspiciatis laudantium in iusto, illum voluptatibus? Exercitationem unde aperiam, cupiditate alias mollitia recusandae, suscipit necessitatibus quos aliquam quod animi? Molestias natus quas impedit ut! ossimus assumenda, molestias id vero laborum! Pariatur necessitatibus distinctio possimus aut! Nostrum et quos perspiciatis nobis sint vero repellendus porro, fuga maiores incidunt accusantium nemo nulla voluptates voluptatem dignissimos illum eius amet explicabo reprehenderit labore harum. Vero quas minima esse non? carroserie tututututurlututu ',1);
 
 INSERT INTO contacts(co_firstname,co_lastname,co_email,co_phone,co_subject,co_description, ro_id)
 VALUES
