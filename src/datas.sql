@@ -90,11 +90,11 @@ VALUES
 
 INSERT INTO vehicles(ve_designation,ve_price,ve_km,ve_year,ve_color,ve_doors,ve_photo,en_id, mo_id,ro_id)
 VALUES
-    ('Exept',25459,25432,2023,'blue',5,'assets/peugeot-30082.jpg', 4,2,3),
-    ('Rare',23612,12542,2023,'Orange',5,'assets/r5-electric-.jpg',5,4,3),
-    ('Occaz',12345,98657,2022,'Yellow',3,'assets/renault_clio.jpg',3,3,3),
-    ('Folie',8999,175236,2018,'blue',5,'assets/toyota-yaris2.jpg',2,6,3),
-    ('Bijoux',3000,275123,2012,'White',3,'assets/citroen_c4.jpg',1,7,3);
+    ('Peugeot 3008 sx electric 18ch',25459,25432,2023,'blue',5,'assets/A-1/peugeot-3008.jpg', 4,2,3),
+    ('Renault R5 electric sport xs',23612,12542,2023,'Orange',5,'assets/A-2/r5-electric.jpg',5,4,3),
+    ('Occaz',12345,98657,2022,'Yellow',3,'assets/A-3/renault_clio.jpg',3,3,3),
+    ('Folie',8999,175236,2018,'blue',5,'assets/A-4/toyota-yaris2.jpg',2,6,3),
+    ('Bijoux',3000,275123,2012,'White',3,'assets/A-5/citroen_c4.jpg',1,7,3);
 
 INSERT INTO vehicles_equipments(ve_id, eq_id)
 VALUES
@@ -113,4 +113,23 @@ VALUES
     (3,11),
     (4,4),
     (4,6),
-    (5,8),
+    (5,8);
+
+INSERT INTO images (im_name, im_path, ve_id)
+VALUES
+   ('peugeot-30081.jpg','assets/A-1/peugeot-30081.jpg',1),
+   ('peugeot-30082.jpg','assets/A-1/peugeot-30082.jpg',1),
+   ('peugeot-30083.jpg','assets/A-1/peugeot-30083.jpg',1),
+   ('r5-electric1.jpg','assets/A-2/r5-electric1.jpg',2),
+   ('r5-electric2.jpg','assets/A-2/r5-electric2.jpg',2),
+   ('r5-electric3.jpg','assets/A-2/r5-electric3.jpg',2),
+   ('renault_clio1.jpg','assets/A-3/renault_clio1.jpg',3),
+   ('renault_clio2.jpg','assets/A-3/renault_clio2.jpg',3),
+   ('renault_clio3.jpg','assets/A-3/renault_clio3.jpg',3),
+   ('toyota-yaris-int1.jpg','assets/A-4/toyota-yaris-int1.jpg',4),
+   ('toyota-yaris-int1.jpg','assets/A-4/toyota-yaris-int2.jpg',4),
+   ('toyota-yaris-int1.jpg','assets/A-4/toyota-yaris-int3.jpg',4),
+   ('citroen_c41.jpg','assets/A-5/citroen_c41.jpg',5),
+   ('citroen_c42.jpg','assets/A-5/citroen_c42.jpg',5),
+   ('citroen_c43.jpg','assets/A-5/citroen_c43.jpg',5);
+   
